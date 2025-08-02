@@ -2,175 +2,247 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wafa Navas | Food Technologist</title>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Pastel_pink_circle.svg/1024px-Pastel_pink_circle.svg.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #fdf6f0;
+      --accent-color: #eec8d2;
+      --text-color: #333;
+      --heading-color: #2e2e2e;
+      --link-color: #9e5d73;
+      --gradient-bg: linear-gradient(to right, #fde2e4, #fad2e1);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
     }
 
     body {
-      background: #f6f6f6;
-      color: #333;
-      line-height: 1.6;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--gradient-bg);
+      color: var(--text-color);
     }
 
-    header {
-      background: #f7caca;
-      color: #222;
-      padding: 2rem 1rem;
+    .intro {
+      background: white;
+      padding: 5rem 2rem 3rem;
       text-align: center;
+      animation: fadeInDown 1.5s ease;
     }
 
-    header h1 {
-      font-size: 2.5rem;
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    header p {
+    .intro h1 {
+      font-size: 3rem;
+      color: var(--link-color);
+    }
+
+    .intro p {
       margin-top: 0.5rem;
+      font-size: 1.2rem;
+      color: #777;
     }
 
-    .container {
+    nav {
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      padding: 0.8rem;
+      display: flex;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: var(--link-color);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--heading-color);
+    }
+
+    section {
+      padding: 4rem 2rem;
       max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      margin: auto;
     }
 
-    h2 {
-      border-bottom: 2px solid #f7caca;
-      padding-bottom: 0.5rem;
-      margin-top: 2rem;
-      color: #444;
+    section h2 {
+      margin-bottom: 1rem;
+      color: var(--heading-color);
+      font-size: 1.8rem;
     }
 
     ul {
-      margin-top: 1rem;
-      padding-left: 1.25rem;
+      list-style: none;
     }
 
     li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
     }
 
-    .contact {
-      margin-top: 1rem;
+    .project {
+      background: rgba(255, 255, 255, 0.7);
+      border-left: 5px solid var(--link-color);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
     }
 
-    .contact a {
+    .project:hover {
+      transform: scale(1.02);
+    }
+
+    .project p {
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: #666;
+    }
+
+    .resume-btn {
       display: inline-block;
-      margin: 0.5rem 1rem 0.5rem 0;
-      color: #555;
+      margin-top: 1rem;
+      padding: 0.7rem 1.4rem;
+      background: #fff;
+      color: var(--link-color);
+      border: 2px solid var(--link-color);
+      border-radius: 25px;
+      font-weight: bold;
       text-decoration: none;
+      transition: all 0.3s ease;
     }
 
-    .contact a:hover {
-      color: #d14d72;
+    .resume-btn:hover {
+      background: var(--link-color);
+      color: #fff;
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--link-color);
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      display: none;
+      font-size: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 999;
     }
 
     footer {
       text-align: center;
-      margin: 2rem 0 1rem;
+      padding: 2rem 1rem;
+      color: #999;
       font-size: 0.9rem;
-      color: #888;
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <h1>Wafa Navas</h1>
-    <p>Food Technologist | R&D Enthusiast | Product Innovator</p>
-    <div class="contact">
-      <a href="mailto:wafa17.002@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-      <a href="https://linkedin.com/in/wafa-navas" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="tel:+918078754589"><i class="fas fa-phone"></i> Phone</a>
-    </div>
-  </header>
-
-  <div class="container">
-    <h2>Professional Summary</h2>
-    <p>Food Technology graduate with first-rank distinction and hands-on R&D experience in flavour, functional ingredients, and plant-based innovation. Skilled in lab-scale formulation, oxidative stability testing, and analytical evaluation with a focus on consumer-driven innovation and safety standards.</p>
-
-    <h2>Education</h2>
-    <ul>
-      <li><strong>B.Tech in Food Technology</strong>, Verghese Kurien Institute of Dairy and Food Technology, KVASU<br>OGPA: 8.75 (First Rank)</li>
-    </ul>
-
-    <h2>Certifications</h2>
-    <ul>
-      <li>HACCP Level 3 – Highfield</li>
-      <li>ISO 22000:2018 – Highfield & Udemy</li>
-      <li>Food Safety Training & Certification – FSSAI</li>
-      <li>GATE XL Qualified – 2025</li>
-    </ul>
-
-    <h2>Professional Experience</h2>
-    <ul>
-      <li><strong>Intern – NPD & Research, Synthite Industries Pvt. Ltd (Oct 2024 – Mar 2025)</strong>
-        <ul>
-          <li>Developed natural brown flavors and optimized sensory quality</li>
-          <li>Conducted weekly sensory evaluations of vegan protein prototypes</li>
-          <li>Performed oxidative stability and shelf-life evaluations</li>
-          <li>Supported 20+ formulation trials and pilot production</li>
-          <li>Ensured QA, HACCP, and ISO 22000 compliance</li>
-        </ul>
-      </li>
-    </ul>
-
-    <h2>Projects</h2>
-    <ul>
-      <li>Frozen Dessert from Hemp Milk</li>
-      <li>Credit Seminar on Oleogels in Meat Products</li>
-    </ul>
-
-    <h2>Conferences & Seminars</h2>
-    <ul>
-      <li>Presented at IDA & 9th International Food Convention</li>
-      <li>Participant – Eat Right Seminar (FSSAI)</li>
-      <li>Attendee – Interaction with R.S. Sodhi, Ex-MD, AMUL</li>
-    </ul>
-
-    <h2>Publications</h2>
-    <ul>
-      <li>'Lab Grown Meat Acceptability' – Food Infotech</li>
-      <li>'Probiotics and Therapeutic Effects' – IJMR</li>
-    </ul>
-
-    <h2>Technical Skills</h2>
-    <ul>
-      <li>Product Development, Sensory Testing</li>
-      <li>Rancimat, Oxitest, Rotavapor</li>
-      <li>GMP, HACCP, ISO 22000</li>
-      <li>pH, Total Acidity, Solids Testing</li>
-      <li>Pilot- & Lab-Scale Trials</li>
-    </ul>
-
-    <h2>Achievements</h2>
-    <ul>
-      <li>1st Prize – Case Study (AMUL), Essay (Synthite)</li>
-      <li>2nd Prize – Essay Writing (VKIDFT)</li>
-      <li>Champion – Versification & Mime (KVASU)</li>
-    </ul>
-
-    <h2>Languages</h2>
-    <ul>
-      <li>English</li>
-      <li>Hindi</li>
-      <li>Malayalam</li>
-    </ul>
+  <div class="intro">
+    <h1>Hi, I’m Wafa Navas</h1>
+    <p>A Food Technologist passionate about inclusive innovation</p>
   </div>
 
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>I’m a Food Technology graduate with first-rank distinction and a strong foundation in R&D, product innovation, and food safety standards. My hands-on experience in formulation and testing fuels my drive to develop tasty, functional, and inclusive food products for the future.</p>
+    <a href="Wafa%20Navas%20Resume.pdf" class="resume-btn" download>Download Resume</a>
+  </section>
+
+  <section id="experience" data-aos="fade-up">
+    <h2>Experience</h2>
+    <ul>
+      <li><strong>Intern – New Product Development & Research, Synthite Industries</strong> (Oct 2024 – Mar 2025)<br>
+        Contributed to over 20 formulation trials for vegan proteins, brown flavor development, and shelf-life testing using Rancimat and Oxitest. Collaborated across QA and R&D for pilot trials while following ISO 22000 and HACCP standards.
+      </li>
+    </ul>
+  </section>
+
+  <section id="projects" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="project">
+      <strong>Frozen Dessert from Hemp Milk</strong>
+      <p>Developed a dairy-free dessert using hemp milk, exploring alternative protein sources and texture enhancers suitable for lactose-intolerant consumers.</p>
+    </div>
+    <div class="project">
+      <strong>Credit Seminar: Oleogels as Fat Replacers in Meat Products</strong>
+      <p>Explored the application of oleogels as novel lipid structures to replace saturated fats in processed meats, improving nutritional profiles while maintaining mouthfeel.</p>
+    </div>
+  </section>
+
+  <section id="achievements" data-aos="fade-up">
+    <h2>Achievements</h2>
+    <ul>
+      <li>1st Prize – AMUL Case Study Competition (2023)</li>
+      <li>1st Prize – English Essay, Synthite Industries (2024)</li>
+      <li>Champion – Versification & Mime, KVASU (2023)</li>
+    </ul>
+  </section>
+
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:wafa17.002@gmail.com">wafa17.002@gmail.com</a></p>
+    <p>Phone: +91 8078754589</p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/wafa-navas" target="_blank">linkedin.com/in/wafa-navas</a></p>
+  </section>
+
   <footer>
-    &copy; 2025 Wafa Navas. All rights reserved.
+    &copy; 2025 Wafa Navas — Designed with love & pastel vibes 🌸
   </footer>
+
+  <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+    ↑ Top
+  </button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('backToTop');
+      btn.style.display = window.scrollY > 200 ? 'block' : 'none';
+    });
+  </script>
 </body>
 
 </html>
