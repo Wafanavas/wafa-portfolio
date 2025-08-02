@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wafa Navas | Food Technologist</title>
-  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Pastel_pink_circle.svg/1024px-Pastel_pink_circle.svg.png" type="image/png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Pastel_pink_circle.svg/1024px-Pastel_pink_circle.svg.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
     :root {
       --bg-color: #fdf6f0;
@@ -17,136 +16,98 @@
       --link-color: #9e5d73;
       --gradient-bg: linear-gradient(to right, #fde2e4, #fad2e1);
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--gradient-bg);
-      color: var(--text-color);
-    }
-
-    .intro {
-      background: white;
-      padding: 3rem 1rem 2rem;
-      text-align: center;
-      animation: fadeInDown 1.5s ease;
-    }
-
-    @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .intro h1 {
-      font-size: 3rem;
-      color: var(--link-color);
-    }
-
-    .intro p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-      color: #777;
-    }
-
-    nav {
-      background: white;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-      padding: 0.8rem;
-      display: flex;
-      justify-content: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    nav a {
-      margin: 0 0.5rem;
-      text-decoration: none;
-      color: var(--link-color);
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', sans-serif; background: var(--gradient-bg); color: var(--text-color); }
+    .intro { background: white; padding: 3rem 1rem 2rem; text-align: center; animation: fadeInDown 1.5s ease; }
+    @keyframes fadeInDown { 0% { opacity: 0; transform: translateY(-20px); } 100% { opacity: 1; transform: translateY(0); } }
+    .intro h1 { font-size: 3rem; color: var(--link-color); }
+    .intro p { margin-top: 0.5rem; font-size: 1.2rem; color: #777; }
+    nav { background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.08); padding: 0.8rem; display: flex; justify-content: center; position: sticky; top: 0; z-index: 10; }
+    nav a { margin: 0 0.5rem; text-decoration: none; color: var(--link-color); font-weight: 600; transition: color 0.3s; }
     nav a:hover { color: var(--heading-color); }
-
-    section {
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    section h2 {
-      margin-bottom: 1rem;
-      color: var(--heading-color);
-      font-size: 1.8rem;
-    }
-
-    ul { list-style: none; }
-    li { margin-bottom: 0.75rem; }
-
-    .project {
-      background: rgba(255, 255, 255, 0.7);
-      border-left: 5px solid var(--link-color);
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-    }
-
+    section { padding: 2rem 1rem; max-width: 900px; margin: auto; }
+    section h2 { margin-bottom: 1rem; color: var(--heading-color); font-size: 1.8rem; }
+    ul { list-style: none; } li { margin-bottom: 0.75rem; }
+    .project { background: rgba(255, 255, 255, 0.7); border-left: 5px solid var(--link-color); padding: 1rem; margin-bottom: 1rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: transform 0.3s ease; }
     .project:hover { transform: scale(1.02); }
-
-    .project p {
-      margin-top: 0.5rem;
-      font-style: italic;
-      color: #666;
-    }
-
-    .resume-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.7rem 1.4rem;
-      background: #fff;
-      color: var(--link-color);
-      border: 2px solid var(--link-color);
-      border-radius: 25px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .resume-btn:hover {
-      background: var(--link-color);
-      color: #fff;
-    }
-
-    #backToTop {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: var(--link-color);
-      color: white;
-      border: none;
-      padding: 0.6rem 1rem;
-      border-radius: 50px;
-      cursor: pointer;
-      display: none;
-      font-size: 1rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      z-index: 999;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem 0.5rem;
-      color: #999;
-      font-size: 0.9rem;
-    }
+    .project p { margin-top: 0.5rem; font-style: italic; color: #666; }
+    .resume-btn { display: inline-block; margin-top: 1rem; padding: 0.7rem 1.4rem; background: #fff; color: var(--link-color); border: 2px solid var(--link-color); border-radius: 25px; font-weight: bold; text-decoration: none; transition: all 0.3s ease; }
+    .resume-btn:hover { background: var(--link-color); color: #fff; }
+    #backToTop { position: fixed; bottom: 30px; right: 30px; background-color: var(--link-color); color: white; border: none; padding: 0.6rem 1rem; border-radius: 50px; cursor: pointer; display: none; font-size: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 999; }
+    footer { text-align: center; padding: 1rem 0.5rem; color: #999; font-size: 0.9rem; }
   </style>
 </head>
+
+<body>
+  <div class="intro">
+    <h1>Hi, I’m Wafa Navas</h1>
+    <p>A Food Technologist passionate about inclusive innovation</p>
+  </div>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>I’m a First Rank holder in B.Tech Food Technology from Verghese Kurien Institute of Dairy and Food Technology, with experience in NPD, formulation trials, sensory analysis, and functional ingredient research. Diagnosed with IBS, I became passionate about inclusive, easy-to-digest food innovations for sensitive populations. I’ve interned with Synthite Industries, conducted award-winning research, published articles, and led student initiatives for World Food Day and Food Safety Day. I aim to merge science and empathy to design food that nourishes everyone.</p>
+    <a href="Wafa Navas Resume.pdf" class="resume-btn" download>Download Resume</a>
+  </section>
+
+  <section id="experience" data-aos="fade-up">
+    <h2>Experience</h2>
+    <ul>
+      <li><strong>Intern – New Product Development & Research, Synthite Industries</strong> (Oct 2024 – Mar 2025)<br>
+        Contributed to over 20 formulation trials for vegan proteins, brown flavor development, and shelf-life testing using Rancimat and Oxitest. Collaborated across QA and R&D for pilot trials while following ISO 22000 and HACCP standards.
+      </li>
+    </ul>
+  </section>
+
+  <section id="projects" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="project">
+      <strong>Frozen Dessert from Hemp Milk</strong>
+      <p>This project involved developing a dairy-free frozen dessert using hemp milk as the primary base—targeting vegan and lactose-intolerant consumers. I optimized the formulation through roasting pre-treatments and combinations of stabilizers and emulsifiers like pectin and GMS to reduce the characteristic beany flavor. The final product showed significant improvements in texture, melting resistance, and sensory acceptability, especially in samples using coconut cream. This work aligns with current demands for plant-based, allergen-friendly alternatives and reflects my focus on nutritional innovation rooted in consumer needs.</p>
+    </div>
+    <div class="project">
+      <strong>Credit Seminar: Oleogels as Fat Replacers in Meat Products</strong>
+      <p>My seminar explored the use of oleogels—structured vegetable oil systems—as healthier replacements for saturated animal fats in processed meat products. I studied different structuring agents like waxes, monoglycerides, and ethylcellulose, analyzing their gelling properties and potential to retain texture and stability in meat formulations. The presentation covered formation methods, sensory challenges, and health benefits, emphasizing the scope of oleogels in enhancing product nutrition without compromising quality. It highlighted how food structuring science can promote functional, clean-label meat alternatives.</p>
+    </div>
+  </section>
+
+  <section id="achievements" data-aos="fade-up">
+    <h2>Achievements</h2>
+    <ul>
+      <li>1st Prize – AMUL Case Study Competition (2023)</li>
+      <li>1st Prize – English Essay, Synthite Industries (2024)</li>
+      <li>Champion – Versification & Mime, KVASU (2023)</li>
+    </ul>
+  </section>
+
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:wafa17.002@gmail.com">wafa17.002@gmail.com</a></p>
+    <p>Phone: +91 8078754589</p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/wafa-navas" target="_blank">linkedin.com/in/wafa-navas</a></p>
+  </section>
+
+  <footer>
+    &copy; 2025 Wafa Navas — Designed with simplicity and care 🌿
+  </footer>
+
+  <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑ Top</button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+    window.addEventListener('scroll', () => {
+      const btn = document.getElementById('backToTop');
+      btn.style.display = window.scrollY > 200 ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>
