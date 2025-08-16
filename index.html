@@ -20,32 +20,17 @@
       z-index: -1;
     }
 
-    /* Intro */
-    .intro {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: #fcf7f2; display: flex; align-items: center; justify-content: center;
-      z-index: 2000; color: #3e2c23; font-size: 2rem; font-weight: bold;
-      animation: fadeOut 2.5s ease forwards 2s;
-    }
-    .intro span { opacity: 0; transform: scale(0.8); animation: popUp 1s ease forwards; }
-    @keyframes popUp { to { opacity: 1; transform: scale(1); } }
-    @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
-
     /* Navbar */
     header {
       position: fixed; top: 0; width: 100%;
       background: rgba(255,255,255,0.9); backdrop-filter: blur(8px);
-      padding: 6px 4%; display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 4%; display: flex; justify-content: space-between; align-items: center;
       z-index: 1000; transition: background 0.5s ease, box-shadow 0.5s ease;
       flex-wrap: wrap;
     }
     header.scrolled { background: rgba(230,210,190,0.95); box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
-    header .logo { font-weight: bold; font-size: 1rem; color: #6b4226; white-space: nowrap; }
-    header nav {
-      display: flex; flex-wrap: wrap; justify-content: flex-end;
-      gap: 10px;
-      max-width: 100%;
-    }
+    header .logo { font-weight: bold; font-size: 1rem; color: #6b4226; }
+    header nav { display: flex; flex-wrap: wrap; gap: 12px; }
     header nav a {
       text-decoration: none; font-size: 0.85rem;
       color: #3e2c23; font-weight: 500; position: relative;
@@ -58,13 +43,13 @@
 
     /* Hero */
     .hero {
-      min-height: 55vh;
+      min-height: 70vh;
       display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center; padding: 70px 5% 30px;
+      text-align: center; padding: 90px 5% 40px;
     }
     .hero h1 { font-size: 2rem; margin-bottom: 6px; }
     .hero p {
-      font-size: 0.95rem; margin-bottom: 10px; color: #6b4226;
+      font-size: 1rem; margin-bottom: 10px; color: #6b4226;
       border-right: 2px solid #6b4226; white-space: nowrap; overflow: hidden; width: 0;
       animation: typing 3.5s steps(35, end) forwards 0.8s;
     }
@@ -72,33 +57,34 @@
 
     .btn {
       padding: 7px 16px; border: none; border-radius: 20px;
-      background: #d2a679; color: white; cursor: pointer; font-size: 0.85rem;
+      background: #d2a679; color: white; cursor: pointer; font-size: 0.9rem;
       transition: transform 0.3s ease, background 0.3s ease;
     }
     .btn:hover { transform: scale(1.05); background: #b37a4c; }
 
     /* Sections */
     section {
-      padding: 20px 6%; opacity: 0; transform: translateY(15px);
+      padding: 50px 6% 40px;
+      opacity: 0; transform: translateY(15px);
       transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-      line-height: 1.5;
+      line-height: 1.6;
     }
     section.visible { opacity: 1; transform: translateY(0); }
     .section-title {
-      text-align: center; font-size: 1.3rem; margin-bottom: 12px; position: relative;
+      text-align: center; font-size: 1.4rem; margin-bottom: 20px; position: relative;
     }
     .section-title::after {
       content: ""; position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%);
-      width: 35px; height: 3px; background: #d2a679; border-radius: 2px;
+      width: 40px; height: 3px; background: #d2a679; border-radius: 2px;
     }
 
-    /* Education Timeline */
+    /* Timeline */
     .timeline {
-      position: relative; margin: 10px auto; padding-left: 20px;
+      position: relative; margin: 0 auto; padding-left: 20px;
       border-left: 2px solid #b37a4c; max-width: 600px;
     }
     .timeline-item {
-      margin: 10px 0; position: relative; padding-left: 20px;
+      margin: 15px 0; position: relative; padding-left: 20px;
       animation: slideIn 1s ease forwards;
     }
     .timeline-item::before {
@@ -112,10 +98,10 @@
     /* Leadership Cards */
     .leadership-cards {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 12px;
+      gap: 16px;
     }
     .card {
-      background: rgba(255,255,255,0.7); border-radius: 12px; padding: 12px;
+      background: rgba(255,255,255,0.7); border-radius: 12px; padding: 14px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.4s ease;
     }
@@ -125,10 +111,10 @@
     /* Projects */
     .projects {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
+      gap: 16px;
     }
     .project-card {
-      background: rgba(255,255,255,0.7); padding: 12px; border-radius: 12px;
+      background: rgba(255,255,255,0.7); padding: 14px; border-radius: 12px;
       box-shadow: 0 3px 10px rgba(0,0,0,0.08);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
@@ -138,7 +124,7 @@
     }
 
     /* Footer */
-    footer { text-align: center; padding: 8px; background: #f1e0c5; font-size: 0.8rem; }
+    footer { text-align: center; padding: 12px; background: #f1e0c5; font-size: 0.85rem; }
     footer .ps {
       margin-top: 6px;
       font-style: italic;
@@ -171,7 +157,6 @@
 <body>
 
   <canvas id="particles"></canvas>
-  <div class="intro"><span>Wafa Navas</span></div>
 
   <header id="navbar">
     <div class="logo">Wafa Navas</div>
@@ -196,9 +181,7 @@
   <!-- About -->
   <section id="about">
     <h2 class="section-title">About Me</h2>
-    <p>
-      I am a First Rank graduate in B.Tech Food Technology (2020–2025) from Verghese Kurien Institute of Dairy and Food Technology, driven by a passion for New Product Development and Research. My journey has been defined by curiosity and creativity—exploring how food science can be applied to craft innovative, consumer-friendly products. From formulating plant-based frozen desserts that cater to dietary inclusivity, to investigating clean-label fat alternatives for healthier food systems, I aim to blend scientific precision with real-world impact. Through hands-on industrial training, research presentations, and leadership experiences, I continue to shape my vision of making future foods both purposeful and inspiring.
-    </p>
+    <p>I am a First Rank graduate in B.Tech Food Technology (2020–2025)...</p>
   </section>
 
   <!-- Education -->
@@ -211,11 +194,11 @@
       </div>
       <div class="timeline-item">
         <h3>XII — CBSE</h3>
-        <p>Kendriya Vidyalaya, Kadavanthra, Ernakulam (2020) — 93.4%</p>
+        <p>Kendriya Vidyalaya, Kadavanthra (2020) — 93.4%</p>
       </div>
       <div class="timeline-item">
         <h3>X — CBSE</h3>
-        <p>Kendriya Vidyalaya, Kadavanthra, Ernakulam (2018) — 96.8%</p>
+        <p>Kendriya Vidyalaya, Kadavanthra (2018) — 96.8%</p>
       </div>
     </div>
   </section>
@@ -223,26 +206,15 @@
   <!-- Experience -->
   <section id="experience">
     <h2 class="section-title">Experience</h2>
-    <h3>Intern – New Product Development & Research</h3>
-    <p>Synthite Industries | Oct 2024 – Mar 2025</p>
-    <ul>
-      <li>Contributed to 20+ formulation trials for vegan proteins and brown flavors.</li>
-      <li>Conducted shelf-life tests with Rancimat & Oxitest.</li>
-    </ul>
+    <p>Intern – Synthite Industries (2024–25)...</p>
   </section>
 
   <!-- Leadership -->
   <section id="leadership">
     <h2 class="section-title">Leadership</h2>
     <div class="leadership-cards">
-      <div class="card">
-        <h3>Vice President, Students' Union (2022–23)</h3>
-        <p>Organized cultural and academic events, represented student concerns, resolved issues, and acted as a bridge between faculty and students to ensure smoother campus experiences.</p>
-      </div>
-      <div class="card">
-        <h3>Student Coordinator — FoodZone & FoodSalvatio (2020–23)</h3>
-        <p>Led awareness campaigns, national programs, and classes on World Food Day & Food Safety Day in collaboration with AFSTI. Conducted surveys, engaged school students, and promoted food sustainability.</p>
-      </div>
+      <div class="card"><h3>Vice President</h3><p>Organized events, resolved issues...</p></div>
+      <div class="card"><h3>Student Coordinator</h3><p>FoodZone & FoodSalvatio programs...</p></div>
     </div>
   </section>
 
@@ -250,14 +222,8 @@
   <section id="projects">
     <h2 class="section-title">Projects</h2>
     <div class="projects">
-      <div class="project-card">
-        <h3>Frozen Dessert from Hemp Milk</h3>
-        <p>Developed a dairy-free frozen dessert using hemp milk, targeting vegan and lactose-intolerant consumers. Optimized texture and sensory acceptance while demonstrating hemp’s potential in sustainable frozen desserts.</p>
-      </div>
-      <div class="project-card">
-        <h3>Oleogels as Fat Replacers</h3>
-        <p>Presented a seminar on oleogels as healthier alternatives to saturated fats. Showcased their role in stability, texture, and nutrition in modern food systems for health-conscious consumers.</p>
-      </div>
+      <div class="project-card"><h3>Frozen Dessert from Hemp Milk</h3><p>Dairy-free frozen dessert project...</p></div>
+      <div class="project-card"><h3>Oleogels as Fat Replacers</h3><p>Seminar on clean-label fat alternatives...</p></div>
     </div>
   </section>
 
@@ -265,8 +231,8 @@
   <section id="achievements">
     <h2 class="section-title">Achievements</h2>
     <ul>
-      <li>1st Prize – AMUL Case Study Competition (2023)</li>
-      <li>1st Prize – English Essay, Synthite Industries (2024)</li>
+      <li>1st Prize – AMUL Case Study (2023)</li>
+      <li>1st Prize – English Essay, Synthite (2024)</li>
       <li>Champion – Versification & Mime, KVASU (2023)</li>
     </ul>
   </section>
@@ -276,7 +242,7 @@
     <h2 class="section-title">Get in Touch</h2>
     <p>📧 <a href="mailto:wafa17.002@gmail.com">wafa17.002@gmail.com</a></p>
     <p>📞 <a href="tel:+918078754589">+91 8078754589</a></p>
-    <p>🔗 <a href="https://linkedin.com/in/wafa-navas" target="_blank">LinkedIn</a></p>
+    <p>🔗 <a href="https://linkedin.com/in/wafa-navas">LinkedIn</a></p>
     <p class="ps">✨ PS: Life’s too short for boring food — let’s cook up something unforgettable. ✨</p>
   </section>
 
@@ -285,7 +251,7 @@
   </footer>
 
   <script>
-    /* Navbar scroll */
+    /* Navbar scroll + section reveal */
     const sections = document.querySelectorAll("section");
     const navbar = document.getElementById("navbar");
     const revealOnScroll = () => {
