@@ -11,11 +11,13 @@
       background: #fcf7f2;
       color: #3e2c23;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     /* Particle background */
     canvas#particles {
-      position: fixed; top: 0; left: 0;
+      position: fixed;
+      top: 0; left: 0;
       width: 100%; height: 100%;
       z-index: -1;
     }
@@ -23,33 +25,48 @@
     /* Navbar */
     header {
       position: fixed; top: 0; width: 100%;
-      background: rgba(255,255,255,0.9); backdrop-filter: blur(8px);
-      padding: 8px 4%; display: flex; justify-content: space-between; align-items: center;
-      z-index: 1000; transition: background 0.5s ease, box-shadow 0.5s ease;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(8px);
+      padding: 10px 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      z-index: 1000;
+      transition: background 0.5s ease, box-shadow 0.5s ease;
       flex-wrap: wrap;
     }
-    header.scrolled { background: rgba(230,210,190,0.95); box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+    header.scrolled {
+      background: rgba(230,210,190,0.95);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
     header .logo { font-weight: bold; font-size: 1rem; color: #6b4226; }
     header nav { display: flex; flex-wrap: wrap; gap: 12px; }
     header nav a {
-      text-decoration: none; font-size: 0.85rem;
-      color: #3e2c23; font-weight: 500; position: relative;
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: #3e2c23;
+      font-weight: 500;
+      position: relative;
     }
     header nav a::after {
-      content: ""; position: absolute; width: 0; height: 2px; bottom: -3px; left: 0;
-      background: #b37a4c; transition: width 0.3s ease;
+      content: "";
+      position: absolute;
+      width: 0; height: 2px;
+      bottom: -3px; left: 0;
+      background: #b37a4c;
+      transition: width 0.3s ease;
     }
     header nav a:hover::after { width: 100%; }
 
     /* Hero */
     .hero {
-      min-height: 70vh;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center; padding: 90px 5% 40px;
+      min-height: 75vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 100px 5% 40px;
     }
-    .hero h1 { font-size: 2rem; margin-bottom: 6px; }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 6px; }
     .hero p {
-      font-size: 1rem; margin-bottom: 10px; color: #6b4226;
+      font-size: 1rem; margin-bottom: 12px; color: #6b4226;
       border-right: 2px solid #6b4226; white-space: nowrap; overflow: hidden; width: 0;
       animation: typing 3.5s steps(35, end) forwards 0.8s;
     }
@@ -78,7 +95,7 @@
       width: 40px; height: 3px; background: #d2a679; border-radius: 2px;
     }
 
-    /* Timeline */
+    /* Timeline (Education) */
     .timeline {
       position: relative; margin: 0 auto; padding-left: 20px;
       border-left: 2px solid #b37a4c; max-width: 600px;
@@ -158,6 +175,7 @@
 
   <canvas id="particles"></canvas>
 
+  <!-- Navbar -->
   <header id="navbar">
     <div class="logo">Wafa Navas</div>
     <nav>
@@ -188,18 +206,9 @@
   <section id="education">
     <h2 class="section-title">Education</h2>
     <div class="timeline">
-      <div class="timeline-item">
-        <h3>B.Tech Food Technology</h3>
-        <p>Verghese Kurien Institute of Dairy and Food Technology (2020–2025)</p>
-      </div>
-      <div class="timeline-item">
-        <h3>XII — CBSE</h3>
-        <p>Kendriya Vidyalaya, Kadavanthra (2020) — 93.4%</p>
-      </div>
-      <div class="timeline-item">
-        <h3>X — CBSE</h3>
-        <p>Kendriya Vidyalaya, Kadavanthra (2018) — 96.8%</p>
-      </div>
+      <div class="timeline-item"><h3>B.Tech Food Technology</h3><p>VKIDFT (2020–2025)</p></div>
+      <div class="timeline-item"><h3>XII — CBSE</h3><p>Kendriya Vidyalaya (2020) — 93.4%</p></div>
+      <div class="timeline-item"><h3>X — CBSE</h3><p>Kendriya Vidyalaya (2018) — 96.8%</p></div>
     </div>
   </section>
 
@@ -243,11 +252,11 @@
     <p>📧 <a href="mailto:wafa17.002@gmail.com">wafa17.002@gmail.com</a></p>
     <p>📞 <a href="tel:+918078754589">+91 8078754589</a></p>
     <p>🔗 <a href="https://linkedin.com/in/wafa-navas">LinkedIn</a></p>
-    <p class="ps">✨ PS: Life’s too short for boring food — let’s cook up something unforgettable. ✨</p>
   </section>
 
   <footer>
     <p>&copy; 2025 Wafa Navas. Designed with passion and purpose.</p>
+    <p class="ps">✨ PS: Life’s too short for boring food — let’s cook up something unforgettable. ✨</p>
   </footer>
 
   <script>
