@@ -8,12 +8,12 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #f8f5f2;
+      background: linear-gradient(135deg, #fce1e4, #f9f6d8, #d9f6f2);
       color: #3e2c23;
       scroll-behavior: smooth;
     }
 
-    /* === Intro Overlay === */
+    /* Intro animation */
     .intro {
       position: fixed;
       top: 0; left: 0;
@@ -27,7 +27,7 @@
       font-size: 3rem;
       font-weight: bold;
       opacity: 1;
-      animation: fadeOut 2.5s ease forwards 2.5s;
+      animation: fadeOut 3s ease forwards 2.5s;
     }
     .intro span {
       opacity: 0;
@@ -41,14 +41,14 @@
       to { opacity: 0; visibility: hidden; }
     }
 
-    /* === Navbar === */
+    /* Navbar */
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(241, 224, 197, 0.9);
+      background: rgba(255,255,255,0.6);
       backdrop-filter: blur(6px);
-      padding: 15px 10%;
+      padding: 12px 10%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -56,8 +56,8 @@
       transition: background 0.5s ease, box-shadow 0.5s ease;
     }
     header.scrolled {
-      background: #d2a679;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+      background: rgba(255, 200, 200, 0.9);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
     }
     header a {
       text-decoration: none;
@@ -67,34 +67,32 @@
       transition: color 0.3s ease;
     }
     header a:hover {
-      color: white;
+      color: #b37a4c;
     }
 
-    /* === Hero === */
+    /* Hero */
     .hero {
-      min-height: 100vh;
+      min-height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #fff8f0, #f3e5d0);
       text-align: center;
       padding: 60px 10%;
       animation: fadeIn 2s ease-in-out forwards;
     }
     .hero h1 {
-      font-size: 3.2rem;
+      font-size: 3.5rem;
       animation: slideUp 1.5s ease forwards 0.5s;
     }
     .hero p {
-      font-size: 1.3rem;
-      margin-bottom: 25px;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
       color: #6b4226;
       animation: fadeIn 2s ease forwards 1.2s;
     }
     .btn {
-      padding: 10px 20px;
-      margin: 10px;
+      padding: 12px 24px;
       border: none;
       border-radius: 25px;
       background: #d2a679;
@@ -109,7 +107,7 @@
       background: #b37a4c;
     }
 
-    /* === Sections === */
+    /* Sections */
     section {
       padding: 50px 10%;
       opacity: 0;
@@ -138,7 +136,7 @@
       border-radius: 2px;
     }
 
-    /* === Projects === */
+    /* Projects */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -156,7 +154,7 @@
       box-shadow: 0 8px 25px rgba(210,166,121,0.4);
     }
 
-    /* === Footer === */
+    /* Footer */
     footer {
       text-align: center;
       padding: 20px;
@@ -171,7 +169,7 @@
       font-size: 0.95rem;
     }
 
-    /* === Animations === */
+    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -184,12 +182,12 @@
 </head>
 <body>
 
-  <!-- Intro Overlay -->
+  <!-- Intro -->
   <div class="intro"><span>Wafa Navas</span></div>
 
   <!-- Navbar -->
   <header id="navbar">
-    <div class="logo"><b>Wafa Navas</b></div>
+    <div><b>Wafa Navas</b></div>
     <nav>
       <a href="#about">About</a>
       <a href="#education">Education</a>
@@ -213,7 +211,7 @@
   <section id="about">
     <h2 class="section-title">About Me</h2>
     <p>
-      I am a First Rank graduate in B.Tech Food Technology (2020–2025) from Verghese Kurien Institute of Dairy and Food Technology, passionate about New Product Development and Research. Through academic projects, internships, and scientific presentations, I’ve explored the science behind functional foods that meet evolving consumer needs.
+      I am a First Rank graduate in B.Tech Food Technology (2020–2025) from Verghese Kurien Institute of Dairy and Food Technology, passionate about New Product Development and Research.
     </p>
     <p>
       My work spans from plant-based frozen desserts to clean-label fat alternatives, reflecting my drive to bridge innovation and applicability. With hands-on experience at Synthite Industries and leadership in food-tech initiatives, I strive to create purposeful products that blend technical precision with real-world impact.
@@ -245,13 +243,13 @@
       <div class="project-card">
         <h3>Frozen Dessert from Hemp Milk</h3>
         <p>
-          Developed a novel dairy-free frozen dessert using hemp milk, targeting vegan and lactose-intolerant consumers. The project focused on optimizing texture, mouthfeel, and sensory acceptance while ensuring nutritional richness. This innovation demonstrated the potential of hemp-based formulations to offer sustainable, inclusive alternatives in the frozen dessert sector.
+          Developed a novel dairy-free frozen dessert using hemp milk, targeting vegan and lactose-intolerant consumers. Focused on optimizing texture, mouthfeel, and sensory acceptance while ensuring nutritional richness. Demonstrated the potential of hemp-based formulations for sustainable, inclusive alternatives in frozen desserts.
         </p>
       </div>
       <div class="project-card">
         <h3>Credit Seminar: Oleogels as Fat Replacers</h3>
         <p>
-          Presented a seminar on oleogels—structured vegetable oils—as clean-label, healthier alternatives to saturated fats in processed foods. Highlighted their role in improving texture, stability, and nutritional profile while reducing cardiovascular health risks. This work emphasized oleogels’ relevance in modern food design for health-conscious consumers.
+          Presented a seminar on oleogels—structured vegetable oils—as healthier alternatives to saturated fats in processed foods. Highlighted their role in improving texture, stability, and nutritional profile while reducing cardiovascular health risks. Showcased oleogels’ potential in modern food design for health-conscious consumers.
         </p>
       </div>
     </div>
@@ -268,12 +266,12 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="contact">
+  <section id="contact">
     <h2 class="section-title">Get in Touch</h2>
     <p>I am always open to new opportunities, collaborations, and innovative ideas.</p>
-    <a href="mailto:wafa17.002@gmail.com">📧 Email: wafa17.002@gmail.com</a><br>
-    <a href="tel:+918078754589">📞 Phone: +91 8078754589</a><br>
-    <a href="https://linkedin.com/in/wafa-navas" target="_blank">🔗 LinkedIn</a>
+    <p>📧 <a href="mailto:wafa17.002@gmail.com">wafa17.002@gmail.com</a></p>
+    <p>📞 <a href="tel:+918078754589">+91 8078754589</a></p>
+    <p>🔗 <a href="https://linkedin.com/in/wafa-navas" target="_blank">LinkedIn</a></p>
   </section>
 
   <!-- Footer -->
@@ -282,7 +280,7 @@
     <p class="ps">PS: Life’s too short for boring food — let’s cook up something unforgettable.</p>
   </footer>
 
-  <!-- Scroll & Navbar Animations -->
+  <!-- Scroll effects -->
   <script>
     const sections = document.querySelectorAll("section");
     const navbar = document.getElementById("navbar");
