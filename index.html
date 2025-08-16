@@ -6,153 +6,149 @@
   <title>Wafa Navas - Portfolio</title>
   <style>
     body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #e6f7f9, #fff0f6, #f0f5ff);
-      background-attachment: fixed;
       margin: 0;
-      padding: 0;
-      line-height: 1.7;
-      color: #333;
-    }
-    .banner {
-      background: linear-gradient(120deg, #c9f1f3, #f9e1f0, #e3e8fa);
-      height: 220px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 4px solid #6cb4b8;
-      text-align: center;
-    }
-    .banner h1 {
-      font-size: 2.8rem;
-      font-weight: bold;
-      color: #444;
-      margin: 0;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    }
-    .banner h2 {
-      font-size: 1.2rem;
-      font-style: italic;
-      color: #555;
-      margin-top: 10px;
+      font-family: Arial, sans-serif;
+      background-color: #111827;
+      color: #f3f4f6;
+      line-height: 1.6;
     }
     header {
-      background: #6cb4b8;
-      color: white;
-      padding: 15px 0;
+      background: #1f2937;
+      padding: 20px;
       text-align: center;
-      box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-    header p {
-      margin: 5px 0 10px;
-      font-size: 1.1rem;
+    header h1 {
+      margin: 0;
+      color: #14b8a6;
+      font-size: 2rem;
     }
     nav a {
-      color: white;
+      color: #d1d5db;
       margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
+    }
+    nav a:hover {
+      color: #14b8a6;
     }
     section {
-      padding: 50px 20px;
+      padding: 60px 20px;
       max-width: 900px;
       margin: auto;
     }
     h2 {
-      color: #444;
-      text-align: center;
-      margin-bottom: 20px;
       font-size: 2rem;
+      color: #14b8a6;
+      margin-bottom: 20px;
+      text-align: center;
     }
-    .project {
-      background: white;
-      margin: 20px 0;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    p {
+      margin-bottom: 15px;
+      text-align: justify;
     }
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0px 6px 15px rgba(0,0,0,0.15);
+    .btn {
+      display: inline-block;
+      margin: 10px 5px;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn-primary {
+      background: #14b8a6;
+      color: white;
+    }
+    .btn-secondary {
+      border: 2px solid #374151;
+      color: #d1d5db;
     }
     footer {
-      background: #444;
-      color: #ddd;
+      background: #111827;
       text-align: center;
       padding: 20px;
       margin-top: 40px;
+      border-top: 1px solid #374151;
       font-size: 0.9rem;
-    }
-    footer a {
-      color: #9ee5e9;
-      text-decoration: none;
+      color: #9ca3af;
     }
   </style>
 </head>
 <body>
 
-  <!-- Banner -->
-  <div class="banner">
-    <h1>Wafa Navas</h1>
-    <h2>From lab to table: purposeful food innovation.</h2>
-  </div>
-
   <header>
-    <p>Food Technologist | Researcher | Innovator</p>
+    <h1>Wafa Navas</h1>
     <nav>
       <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
+      <a href="#achievements">Achievements</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
+  <section id="hero" style="text-align:center;">
+    <h1>Hello, I'm Wafa Navas</h1>
+    <p><em>Crafting smarter foods for a healthier tomorrow.</em></p>
+    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+    <a href="Wafa Navas Resume.pdf" download class="btn btn-secondary">Download Resume</a>
+  </section>
+
   <section id="about">
     <h2>About Me</h2>
     <p>
-      I am a First Rank graduate in B.Tech Food Technology from Verghese Kurien Institute of Dairy and Food Technology, deeply passionate about New Product Development and Research. 
-      Through academic projects, industrial internships, and scientific presentations, I’ve explored the science behind formulating functional foods that meet evolving consumer needs. 
-      My work spans from plant-based frozen desserts to clean-label fat alternatives, reflecting my drive to bridge innovation and applicability. 
-      With hands-on experience at Synthite Industries and a track record of leadership in food-tech initiatives, I strive to create purposeful products that blend technical precision with real-world impact.
+      I am a First Rank graduate in B.Tech Food Technology from Verghese Kurien Institute of Dairy and Food Technology, deeply passionate about New Product Development and Research. Through academic projects, industrial internships, and scientific presentations, I’ve explored the science behind formulating functional foods that meet evolving consumer needs.
     </p>
+    <p>
+      My work spans from plant-based frozen desserts to clean-label fat alternatives, reflecting my drive to bridge innovation and applicability. With hands-on experience at Synthite Industries and a track record of leadership in food-tech initiatives, I strive to create purposeful products that blend technical precision with real-world impact.
+    </p>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <p><strong>B.Tech Food Technology</strong><br>
+    Verghese Kurien Institute of Dairy and Food Technology (2021–2025)</p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <p><strong>Intern – New Product Development & Research</strong><br>
+    Synthite Industries (Oct 2024 – Mar 2025)</p>
+    <ul>
+      <li>Contributed to over 20 formulation trials for vegan proteins, brown flavor development, and shelf-life testing using Rancimat and Oxitest.</li>
+      <li>Collaborated across QA and R&D for pilot trials while following ISO 22000 and HACCP standards.</li>
+    </ul>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
+    <p><strong>Frozen Dessert from Hemp Milk</strong><br>
+    Developed a dairy-free frozen dessert using hemp milk as the primary base—targeting vegan and lactose-intolerant consumers. The project addressed texture, taste, and nutritional balance while ensuring consumer appeal for a plant-based market.</p>
+    <p><strong>Credit Seminar: Oleogels as Fat Replacers</strong><br>
+    Delivered an in-depth seminar on oleogels—structured vegetable oil systems—as healthier alternatives to saturated fats. Highlighted applications in meat products and their role in reducing lifestyle-related health risks.</p>
+  </section>
 
-    <div class="project">
-      <h3>Frozen Dessert from Hemp Milk</h3>
-      <p>
-        This project focused on developing a dairy-free frozen dessert using hemp milk as the base. 
-        It aimed to create a nutritious, vegan-friendly alternative for lactose-intolerant consumers. 
-        The work highlighted the potential of hemp as a sustainable ingredient for the future of plant-based foods.
-      </p>
-    </div>
-
-    <div class="project">
-      <h3>Credit Seminar: Oleogels as Fat Replacers</h3>
-      <p>
-        My seminar explored the use of oleogels—structured vegetable oil systems—as healthier replacements for saturated animal fats in processed food products. 
-        This research demonstrated how oleogels can enhance product stability, reduce health risks, and align with consumer demand for clean-label solutions.
-      </p>
-    </div>
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <ul>
+      <li>1st Prize – AMUL Case Study Competition (2023)</li>
+      <li>1st Prize – English Essay, Synthite Industries (2024)</li>
+      <li>Champion – Versification & Mime, KVASU (2023)</li>
+    </ul>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p style="text-align:center;">
-      Email: <a href="mailto:wafa17.002@gmail.com">wafa17.002@gmail.com</a><br>
-      Phone: +91 8078754589<br>
-      LinkedIn: <a href="https://linkedin.com/in/wafa-navas" target="_blank">linkedin.com/in/wafa-navas</a><br>
-      <a href="Wafa%20Navas%20Resume.pdf" download>Download Resume</a>
-    </p>
+    <p>Email: <a href="mailto:wafa17.002@gmail.com">wafa17.002@gmail.com</a></p>
+    <p>Phone: <a href="tel:+918078754589">+91 8078754589</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/wafa-navas" target="_blank">LinkedIn</a></p>
   </section>
 
   <footer>
     <p>&copy; 2025 Wafa Navas. All rights reserved.</p>
-    <p>Designed with a pastel touch 🌸</p>
+    <p>Designed with care and purpose 🌿</p>
   </footer>
 
 </body>
