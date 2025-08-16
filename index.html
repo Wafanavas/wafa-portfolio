@@ -1,116 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wafa Navas - Portfolio</title>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    body {
+    /* ===== Reset & Base ===== */
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #fce7f3, #e0f2fe, #ecfdf5);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
       color: #374151;
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    a {
+      text-decoration: none;
+      color: #2563eb;
     }
+    h1, h2, h3 {
+      font-weight: 700;
+      margin-bottom: 0.5em;
+    }
+
+    /* ===== Header ===== */
     header {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(6px);
       position: sticky;
       top: 0;
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(12px);
-      padding: 10px;
-      text-align: center;
-      z-index: 10;
-      border-bottom: 1px solid #f3e8ff;
-    }
-    header h1 {
-      margin: 0;
-      color: #6d28d9;
-      font-size: 1.8rem;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5e7eb;
     }
     nav a {
-      margin: 0 10px;
-      color: #4b5563;
-      text-decoration: none;
-      font-weight: 600;
+      margin: 0 1rem;
+      font-weight: 500;
+      color: #374151;
       transition: color 0.3s ease;
     }
     nav a:hover {
-      color: #a78bfa;
+      color: #9333ea;
     }
-    section {
-      padding: 50px 8%;
-    }
-    h2 {
+
+    /* ===== Hero ===== */
+    #hero {
       text-align: center;
-      color: #6d28d9;
-      margin-bottom: 25px;
-      font-size: 1.8rem;
+      padding: 6rem 2rem 4rem;
     }
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      height: 70vh;
-      text-align: center;
-      padding: 20px;
+    #hero h1 {
+      font-size: 2.8rem;
+      color: #111827;
     }
-    .hero h1 {
-      font-size: 2.5rem;
-      color: #1e293b;
-      margin-bottom: 10px;
-    }
-    .hero p {
+    #hero p {
       font-size: 1.3rem;
-      color: #475569;
-      font-style: italic;
+      margin: 1rem auto;
+      max-width: 600px;
+      font-weight: 500;
+      color: #4b5563;
     }
-    .card {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 1.5rem;
-      border-radius: 18px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      margin-bottom: 1.5rem;
+    .btn {
+      display: inline-block;
+      margin: 1rem 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+    .btn-primary {
+      background: #9333ea;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #7e22ce;
+    }
+    .btn-outline {
+      border: 2px solid #9333ea;
+      color: #9333ea;
+    }
+    .btn-outline:hover {
+      background: #f3e8ff;
+    }
+
+    /* ===== Sections ===== */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: #111827;
+    }
+    p {
+      margin-bottom: 1rem;
+      color: #374151;
+    }
+
+    /* ===== Projects ===== */
+    .projects {
+      display: grid;
+      gap: 2rem;
+    }
+    .project {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .card:hover {
+    .project:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+
+    /* ===== Contact ===== */
+    #contact {
+      text-align: center;
     }
+    #contact a {
+      display: block;
+      margin: 0.5rem 0;
+    }
+
+    /* ===== Footer ===== */
     footer {
       text-align: center;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(10px);
-      color: #6b7280;
+      padding: 2rem;
+      background: rgba(255,255,255,0.7);
       font-size: 0.9rem;
+      color: #6b7280;
     }
-    footer a {
-      color: #a78bfa;
-      text-decoration: none;
+
+    /* ===== Scroll Animation ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
     }
-    footer a:hover {
-      text-decoration: underline;
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
-
+  <!-- Header -->
   <header>
-    <h1>Wafa Navas</h1>
+    <h2>Wafa Navas</h2>
     <nav>
       <a href="#about">About</a>
       <a href="#education">Education</a>
@@ -122,108 +168,61 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero" data-aos="fade-up">
-    <h1>Hello, I'm <span style="color:#a78bfa;">Wafa Navas</span></h1>
-    <p>From lab to table: purposeful food innovation.</p>
+  <section id="hero">
+    <h1>Hello, I'm Wafa Navas</h1>
+    <p>"From lab to table: purposeful food innovation."</p>
+    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+    <a href="Wafa Navas Resume.pdf" download class="btn btn-outline">Download Resume</a>
   </section>
 
   <!-- About -->
-  <section id="about" data-aos="fade-right">
+  <section id="about" class="fade-in">
     <h2>About Me</h2>
-    <div class="card">
-      <p>
-        I am a First Rank graduate in B.Tech Food Technology from Verghese Kurien Institute of Dairy and Food Technology, passionate about New Product Development and Research. 
-        My work spans from plant-based frozen desserts to clean-label fat alternatives, with hands-on experience at Synthite Industries and leadership in food-tech initiatives.
-      </p>
-      <p>
-        I strive to create purposeful products that blend technical precision with real-world impact, ensuring food is healthier, sustainable, and accessible.
-      </p>
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section id="education" data-aos="fade-left">
-    <h2>Education</h2>
-    <div class="card">
-      <h3>B.Tech Food Technology</h3>
-      <p>Verghese Kurien Institute of Dairy and Food Technology (2021–2025)</p>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <section id="experience" data-aos="fade-right">
-    <h2>Experience</h2>
-    <div class="card">
-      <h3>Intern – New Product Development & Research</h3>
-      <p>Synthite Industries | Oct 2024 – Mar 2025</p>
-      <ul>
-        <li>Worked on 20+ formulation trials for vegan proteins, flavor development, and shelf-life testing.</li>
-        <li>Collaborated with QA and R&D teams, following ISO 22000 and HACCP standards.</li>
-      </ul>
-    </div>
+    <p>I am a First Rank graduate in B.Tech Food Technology from Verghese Kurien Institute of Dairy and Food Technology, deeply passionate about New Product Development and Research. Through academic projects, industrial internships, and scientific presentations, I’ve explored the science behind formulating functional foods that meet evolving consumer needs.</p>
+    <p>My work spans from plant-based frozen desserts to clean-label fat alternatives, reflecting my drive to bridge innovation and applicability. With hands-on experience at Synthite Industries and a track record of leadership in food-tech initiatives, I strive to create purposeful products that blend technical precision with real-world impact.</p>
   </section>
 
   <!-- Projects -->
-  <section id="projects" data-aos="fade-up">
+  <section id="projects" class="fade-in">
     <h2>Projects</h2>
-    <div class="projects-grid">
-      <div class="card">
+    <div class="projects">
+      <div class="project">
         <h3>Frozen Dessert from Hemp Milk</h3>
-        <p>
-          This project focused on developing a <b>plant-based frozen dessert</b> using hemp milk as an alternative to dairy. 
-          Hemp milk was chosen for its high-quality protein, balanced fatty acid profile, and natural bioactive compounds. 
-          The study emphasized achieving a creamy mouthfeel and appealing sensory properties while remaining lactose-free and vegan-friendly. 
-          Various stabilizers and sweeteners were tested to optimize texture, melting resistance, and consumer acceptability. 
-          Results showed that hemp milk could serve as a viable base for frozen desserts, contributing to the growing demand for <b>sustainable and functional non-dairy foods</b>.
-        </p>
+        <p>This project focused on developing a dairy-free frozen dessert using hemp milk, targeted at vegan and lactose-intolerant consumers. The work involved optimizing formulations to balance texture, taste, and stability while maintaining nutritional quality. Trials included emulsifier and stabilizer selection to achieve creaminess comparable to traditional ice cream. This research showcased the potential of hemp milk as a sustainable and nutrient-rich base, offering consumers a healthier and inclusive alternative in the frozen dessert market.</p>
       </div>
-      <div class="card">
+      <div class="project">
         <h3>Credit Seminar: Oleogels as Novel Fat Replacers in Meat</h3>
-        <p>
-          This seminar examined the potential of <b>oleogels</b>—structured vegetable oil systems—as healthier replacements for saturated animal fats in meat products. 
-          Oleogels are formed by trapping liquid oils within a thermo-reversible gel network using oleogelators like waxes, monoglycerides, and phytosterols. 
-          My work reviewed various approaches to oleogel formation, including solvent exchange and foam templating, and assessed their functionality in meat systems such as patties, burgers, and sausages. 
-          Studies highlighted oleogels’ ability to improve nutritional profiles, reduce cooking loss, and maintain structural stability, while also acting as carriers for bioactive compounds. 
-          This seminar deepened my understanding of <b>lipid structuring, functional food innovation, and sustainable fat alternatives</b>.
-        </p>
+        <p>This seminar explored the potential of oleogels—structured vegetable oil systems—as healthier replacements for saturated animal fats in meat products. By incorporating oleogelators such as waxes and phytosterols, liquid oils were structured into gel networks that mimic solid fat. The seminar highlighted their ability to reduce cooking loss, improve nutritional profiles, and even carry bioactive compounds in patties and sausages. While promising, challenges remain in consumer perception and scaling for industry. The seminar deepened my expertise in lipid structuring and functional food innovation.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Achievements -->
-  <section id="achievements" data-aos="fade-left">
-    <h2>Achievements</h2>
-    <div class="card">
-      <ul>
-        <li>1st Prize – AMUL Case Study Competition (2023)</li>
-        <li>1st Prize – English Essay, Synthite Industries (2024)</li>
-        <li>Champion – Versification & Mime, KVASU (2023)</li>
-      </ul>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" data-aos="fade-up">
-    <h2>Contact</h2>
-    <div class="card">
-      <p>Email: <a href="mailto:wafa17.002@gmail.com">wafa17.002@gmail.com</a></p>
-      <p>Phone: <a href="tel:+918078754589">+91 8078754589</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/wafa-navas" target="_blank">LinkedIn</a></p>
-    </div>
+  <section id="contact" class="fade-in">
+    <h2>Get in Touch</h2>
+    <p>I’d love to connect for collaborations, research opportunities, or just a conversation on food innovation!</p>
+    <a href="mailto:wafa17.002@gmail.com">wafa17.002@gmail.com</a>
+    <a href="tel:+918078754589">+91 8078754589</a>
+    <a href="https://linkedin.com/in/wafa-navas" target="_blank">LinkedIn</a>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Wafa Navas. Designed with pastel & purpose 🌸</p>
-    <a href="#top">↑ Back to Top</a>
+    <p>&copy; 2025 Wafa Navas. Designed with pastel vibes 🌸</p>
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Scroll animation script -->
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    fadeEls.forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
