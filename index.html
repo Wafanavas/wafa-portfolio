@@ -1,269 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Wafa Navas | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wafa Navas Portfolio</title>
 
-<style>
-  :root{
-    --vanilla:#f7efe6; --almond:#e6ccb2; --caramel:#d2a679; --mocha:#b37a4c;
-    --coffee:#6b4226; --espresso:#4b2f22; --text:#3e2c23; --bg:var(--vanilla); --navH:64px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-    color:var(--text); background:var(--bg); overflow-x:hidden; scroll-behavior:smooth;
-    line-height:1.6;
-  }
-  a{color:var(--coffee);text-decoration:none}
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  /* BACKGROUND PARTICLES */
-  #particles{position:fixed;inset:0;z-index:-1;pointer-events:none}
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  /* INTRO */
-  .intro{position:fixed;inset:0;display:grid;place-items:center;background:var(--vanilla);
-         z-index:2000;animation:introFade 2.6s ease forwards 2.2s}
-  .intro span{font-weight:800;font-size:clamp(28px,6vw,56px);color:var(--espresso);
-              transform:scale(.8);opacity:0;letter-spacing:.02em;animation:pop .9s ease forwards .4s}
-  @keyframes pop{to{opacity:1;transform:scale(1)}} @keyframes introFade{to{opacity:0;visibility:hidden}}
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #fdf9f4;
+      color: #3e2723;
+      overflow-x: hidden;
+    }
 
-  /* NAVBAR */
-  header{position:sticky;top:0;height:var(--navH);display:flex;align-items:center;justify-content:space-between;
-         padding:0 .75rem 0 1rem;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);z-index:1200;
-         border-bottom:1px solid #00000010}
-  header.scrolled{box-shadow:0 6px 18px #00000010;background:rgba(230,210,190,.92)}
-  .logo{font-weight:700;color:var(--coffee)}
-  nav{display:flex;gap:1rem;align-items:center;overflow-x:auto} nav::-webkit-scrollbar{display:none}
-  nav a{font-weight:500;position:relative;white-space:nowrap}
-  nav a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--mocha);
-               transition:width .25s ease;border-radius:2px}
-  nav a:hover::after{width:100%}
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: #f3e1cf;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    header h1 { font-size: 20px; margin: 0; font-weight: 700; }
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #3e2723;
+      font-weight: 500;
+      transition: color .3s;
+    }
+    nav a:hover { color: #a0522d; }
 
-  /* SECTIONS */
-  section{
-    padding: clamp(32px,4vw,48px) 6% 36px;
-    opacity:0; transform:translateY(22px);
-    transition:opacity .8s ease, transform .8s ease;
-    scroll-margin-top:calc(var(--navH) + 12px);
-  }
-  section.visible{opacity:1;transform:none}
-  .section-title{ text-align:center;margin:0 0 14px;font-size:clamp(20px,3.3vw,30px);
-                  font-weight:800;color:#3c2a20;position:relative}
-  .section-title::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-8px;
-                        height:3px;width:44px;background:var(--caramel);border-radius:2px}
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 80px 20px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: #c58b59;
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
 
-  /* HERO */
-  .hero{min-height:calc(70vh - var(--navH));display:grid;place-items:center;text-align:center}
-  .hero h1{margin:.2rem 0;font-size:clamp(28px,6vw,44px);font-weight:800}
-  .hero h1 span{color:var(--mocha)}
-  .hero p{
-    color:var(--coffee);margin:.25rem 0 1rem;border-right:2px solid var(--coffee);
-    white-space:nowrap; overflow:hidden; text-overflow:clip; width:0;
-    animation:typing 3.6s steps(38,end) forwards .8s
-  }
-  .btn{background:var(--caramel);border:none;color:#fff;padding:.55rem 1.05rem;border-radius:999px;
-       font-weight:600;cursor:pointer;transition:transform .25s ease, background .25s ease}
-  .btn:hover{transform:translateY(-2px) scale(1.04);background:var(--mocha)}
-  @keyframes typing{from{width:0}to{width:100%}}
+    /* Timeline */
+    .timeline {
+      position: relative;
+      margin: 20px auto;
+      padding: 20px 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background: #d7b899;
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      position: relative;
+      width: 45%;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: transform .4s;
+    }
+    .timeline-item:hover { transform: translateY(-6px); }
+    .timeline-item.left { left: 0; }
+    .timeline-item.right { left: 55%; }
+    .timeline-item h3 { margin-top: 0; color: #8b4513; }
 
-  /* EDUCATION TIMELINE */
-  .edu{position:relative;max-width:1100px;margin-inline:auto}
-  .edu::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent, var(--almond), transparent)}
-  .edu-list{display:grid;grid-template-columns:1fr 1fr;gap:12px 44px}
-  .tl{position:relative;background:#ffffffb3;border:1px solid #00000010;border-radius:14px;padding:12px 14px;
-      box-shadow:0 8px 22px #0000000a; transform:translateX(var(--slideX,0));opacity:0;
-      transition:transform .7s ease, opacity .7s ease, box-shadow .25s ease}
-  .tl.visible{opacity:1;transform:translateX(0)}
-  .tl:hover{box-shadow:0 14px 26px #0000001a}
-  .tl h3{margin:.1rem 0 .2rem;font-size:1.06rem} .tl p{margin:.1rem 0;color:#5a4032}
-  .tl::after{content:"";position:absolute;top:18px;width:12px;height:12px;border-radius:50%;
-             box-shadow:0 0 0 6px #b37a4c22, 0 0 18px var(--caramel);
-             background:radial-gradient(circle at 30% 30%, var(--caramel), var(--mocha));
-             animation:pulse 1.8s ease-in-out infinite}
-  @keyframes pulse{0%,100%{box-shadow:0 0 0 6px #b37a4c22,0 0 12px var(--caramel)}50%{box-shadow:0 0 0 9px #b37a4c33,0 0 22px var(--mocha)}}
-  .tl.left{grid-column:1/2;--slideX:-26px} .tl.left::after{right:-28px}
-  .tl.right{grid-column:2/3;--slideX:26px} .tl.right::after{left:-28px}
-  @media (max-width: 860px){
-    .edu::before{left:20px} .edu-list{grid-template-columns:1fr;gap:14px}
-    .tl{padding-left:36px} .tl.left,.tl.right{grid-column:auto;--slideX:0} .tl::after{left:14px}
-  }
+    /* Leadership & Projects Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      transition: transform .4s;
+    }
+    .card:hover { transform: translateY(-6px) scale(1.02); }
+    .card h3 { margin-top: 0; color: #8b4513; }
 
-  /* LEADERSHIP */
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;max-width:1100px;margin-inline:auto}
-  .card{background:#fff;border:1px solid #00000010;border-radius:16px;padding:16px;box-shadow:0 10px 28px #0000000f;
-        transition:transform .35s ease, box-shadow .35s ease}
-  .card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 18px 34px #0000001c}
-  .card h3{margin:.2rem 0;color:var(--mocha)}
+    /* Contact */
+    .contact-info { text-align: left; margin-top: 20px; }
+    .contact-info a { color: #2e64fe; text-decoration: none; }
+    .contact-info a:hover { text-decoration: underline; }
 
-  /* PROJECTS */
-  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;max-width:1100px;margin-inline:auto}
-  .project{background:#ffffffc9;border:1px solid #00000010;border-radius:14px;padding:14px 16px;box-shadow:0 6px 18px #00000010;
-           transition:transform .3s ease, box-shadow .3s ease}
-  .project:hover{transform:translateY(-6px);box-shadow:0 16px 28px #0000001a}
-  .project h3{margin:.1rem 0 .3rem;color:var(--coffee)}
+    /* Fix text collapsing issue */
+    p, li {
+      white-space: normal !important;
+      overflow: visible !important;
+      text-overflow: unset !important;
+      line-height: 1.6;
+    }
 
-  /* CONTACT + animated PS */
-  .contact-list p{margin:.25rem 0}
-  .ps{
-    display:inline-block;margin-top:10px;font-style:italic;color:var(--coffee);
-    white-space:nowrap; overflow:hidden; border-right:2px solid var(--coffee);
-    animation:psType 8s steps(60,end) infinite, blink .8s step-end infinite, glow 2s infinite alternate
-  }
-  @keyframes psType{0%{width:0}40%{width:100%}60%{width:100%}100%{width:0}}
-  @keyframes blink{50%{border-color:transparent}}
-  @keyframes glow{from{text-shadow:0 0 4px var(--caramel)}to{text-shadow:0 0 14px var(--mocha)}}
+    /* PS Animation */
+    .ps-line {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: 500;
+      text-align: center;
+      color: #3e2723;
+    }
+    .ps-line span {
+      display: inline-block;
+      animation: glow 2s infinite alternate, typing 4s steps(40,end);
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #c58b59;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 8px #c58b59; }
+      to   { text-shadow: 0 0 20px #ffb347; }
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to   { width: 100%; }
+    }
 
-  /* FOOTER */
-  footer{padding:14px;text-align:center;background:linear-gradient(#f3e4cf, #f0e0c7)}
-</style>
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #f3e1cf;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Wafa Navas</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<canvas id="particles"></canvas>
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>I am a First Rank graduate in B.Tech Food Technology (2020–2025), passionate about food innovation, science, and sustainability.</p>
+  </section>
 
-<div class="intro"><span>Wafa Navas</span></div>
-
-<header id="navbar">
-  <div class="logo">Wafa Navas</div>
-  <nav>
-    <a href="#about">About</a><a href="#education">Education</a><a href="#experience">Experience</a>
-    <a href="#leadership">Leadership</a><a href="#projects">Projects</a><a href="#achievements">Achievements</a><a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div>
-    <h1>Hello, I'm <span>Wafa Navas</span></h1>
-    <p>Crafting the future of food with science, creativity, and purpose.</p>
-    <a href="#contact"><button class="btn">Get in Touch</button></a>
-  </div>
-</section>
-
-<section id="about">
-  <h2 class="section-title">About Me</h2>
-  <p style="max-width:950px;margin-inline:auto">
-    First Rank graduate in <b>B.Tech Food Technology</b> (2020–2025).  
-    I thrive at the intersection of <b>new product development</b> and <b>research</b>:  
-    from plant-based frozen desserts for inclusive indulgence to clean-label fat alternatives that keep food <i>delicious</i> and <i>honest</i>.  
-    Curious, hands-on, and impact-driven.
-  </p>
-</section>
-
-<section id="education">
-  <h2 class="section-title">Education</h2>
-  <div class="edu">
-    <div class="edu-list">
-      <article class="tl left">
+  <section id="education" data-aos="fade-up">
+    <h2>Education</h2>
+    <div class="timeline">
+      <div class="timeline-item left" data-aos="fade-right">
         <h3>B.Tech Food Technology</h3>
         <p>Verghese Kurien Institute of Dairy and Food Technology (2020–2025)</p>
-      </article>
-      <article class="tl right">
+      </div>
+      <div class="timeline-item right" data-aos="fade-left">
         <h3>XII — CBSE</h3>
-        <p>Kendriya Vidyalaya, Kadavanthra, Ernakulam (2020) — <b>93.4%</b></p>
-      </article>
-      <article class="tl left">
+        <p>Kendriya Vidyalaya, Kadavanthra, Ernakulam (2020) — 93.4%</p>
+      </div>
+      <div class="timeline-item left" data-aos="fade-right">
         <h3>X — CBSE</h3>
-        <p>Kendriya Vidyalaya, Kadavanthra, Ernakulam (2018) — <b>96.8%</b></p>
-      </article>
+        <p>Kendriya Vidyalaya, Kadavanthra, Ernakulam (2018) — 96.8%</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="experience">
-  <h2 class="section-title">Experience</h2>
-  <div style="max-width:950px;margin-inline:auto">
-    <h3>Intern — New Product Development & Research</h3>
-    <p>Synthite Industries | Oct 2024 – Mar 2025</p>
-    <ul>
-      <li>Contributed to 20+ formulation trials in vegan proteins and brown flavors.</li>
-      <li>Ran oxidative stability (Rancimat, Oxitest) and shelf-life assessments.</li>
-      <li>Collaborated with cross-functional teams on sensory and pilot-scale runs.</li>
-    </ul>
-  </div>
-</section>
+  <section id="experience" data-aos="fade-up">
+    <h2>Experience</h2>
+    <p>Intern — Synthite Industries (2024–25). Worked on product innovation and food technology projects.</p>
+  </section>
 
-<section id="leadership">
-  <h2 class="section-title">Leadership</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Vice President — Students’ Union (2022–23)</h3>
-      <p>
-        Led campus initiatives end-to-end: planned fests, academic forums, hack-days and outreach.  
-        Set up a quick feedback loop to <b>hear issues</b>, <b>solve fast</b>, and <b>represent students</b> at faculty councils.  
-      </p>
+  <section id="leadership" data-aos="fade-up">
+    <h2>Leadership</h2>
+    <div class="card-grid">
+      <div class="card" data-aos="zoom-in">
+        <h3>Vice President — Students’ Union (2022–23)</h3>
+        <p>Organized events, resolved student issues, represented students in university meetings, and implemented impactful initiatives that fostered student engagement and wellbeing.</p>
+      </div>
+      <div class="card" data-aos="zoom-in" data-aos-delay="200">
+        <h3>Student Coordinator — FoodZone & FoodSalvatio (2020–23)</h3>
+        <p>Led awareness programs, surveys, and workshops on World Food Day and World Food Safety Day, in association with AFSTI. Conducted classes for school students and coordinated national-level activities promoting food sustainability and safety.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Student Coordinator — FoodZone & FoodSalvatio (2020–23)</h3>
-      <p>
-        Drove <b>World Food Day</b> & <b>World Food Safety Day</b> programs: awareness campaigns, surveys, classes and national-level events.  
-        Conducted school sessions on food safety and nutrition with <b>AFST(I)</b>, making science relatable and practical.  
-      </p>
+  </section>
+
+  <section id="projects" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="card-grid">
+      <div class="card" data-aos="flip-left">
+        <h3>Frozen Dessert from Hemp Milk</h3>
+        <p>Developed a dairy-free frozen dessert using hemp milk, focusing on nutritional value, sensory evaluation, and sustainable food innovation as part of thesis research.</p>
+      </div>
+      <div class="card" data-aos="flip-right">
+        <h3>Oleogels as Fat Replacers</h3>
+        <p>Presented a seminar on oleogels as clean-label fat alternatives in food processing, emphasizing health benefits and industrial applications.</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="projects">
-  <h2 class="section-title">Projects</h2>
-  <div class="projects">
-    <article class="project">
-      <h3>Frozen Dessert from Hemp Milk</h3>
-      <p>
-        Formulated a dairy-free frozen dessert using hemp milk targeting vegan & lactose-intolerant consumers.  
-        Optimised overrun, sweetness balance and stabiliser–emulsifier systems to achieve scoopability and clean finish.  
-      </p>
-    </article>
-    <article class="project">
-      <h3>Oleogels as Clean-Label Fat Replacers</h3>
-      <p>
-        Seminar + trials on structuring liquid oils into <i>oleogels</i> as alternatives to saturated/trans fats.  
-        Evaluated texture, stability, and release behaviour for bakery, spreads and confectionery.  
-      </p>
-    </article>
-  </div>
-</section>
+  <section id="contact" data-aos="fade-up">
+    <h2>Get in Touch</h2>
+    <div class="contact-info">
+      <p>📧 <a href="mailto:wafa17.002@gmail.com">wafa17.002@gmail.com</a></p>
+      <p>📞 <a href="tel:+918078754589">+91 8078754589</a></p>
+      <p>🔗 <a href="https://linkedin.com" target="_blank">LinkedIn</a></p>
+    </div>
+    <div class="ps-line">
+      <span>✨ PS: Life’s too short for boring food — let’s cook up something unforgettable. ✨</span>
+    </div>
+  </section>
 
-<section id="achievements">
-  <h2 class="section-title">Achievements</h2>
-  <ul style="max-width:900px;margin-inline:auto">
-    <li>1st Prize — AMUL Case Study Competition (2023)</li>
-    <li>1st Prize — English Essay, Synthite Industries (2024)</li>
-    <li>Champion — Versification & Mime, KVASU (2023)</li>
-  </ul>
-</section>
+  <footer>
+    <p>© 2025 Wafa Navas</p>
+  </footer>
 
-<section id="contact">
-  <h2 class="section-title">Get in Touch</h2>
-  <div class="contact-list" style="max-width:900px;margin-inline:auto">
-    <p>📧 <a href="mailto:wafa17.002@gmail.com">wafa17.002@gmail.com</a></p>
-    <p>📞 <a href="tel:+918078754589">+91 8078754589</a></p>
-    <p>🔗 <a href="https://linkedin.com/in/wafa-navas" target="_blank" rel="noopener">LinkedIn</a></p>
-    <p class="ps">✨ PS: Life’s too short for boring food — let’s cook up something unforgettable. ✨</p>
-  </div>
-</section>
-
-<footer>© 2025 Wafa Navas. Designed with passion and purpose.</footer>
-
-<script>
-  /* NAV + reveal */
-  const navbar=document.getElementById('navbar');
-  const secs=document.querySelectorAll('section');
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.18});
-  secs.forEach(s=>io.observe(s));
-  addEventListener('scroll',()=>navbar.classList.toggle('scrolled',scrollY>10));
-
-  /* PARTICLES */
-  const c=document.getElementById('particles'),ctx=c.getContext('2d');
-  const size=()=>{c.width=innerWidth;c.height=innerHeight}; size(); addEventListener('resize',size);
-  const colors=['#d2a679','#b37a4c','#a67c52','#e6ccb2','#6b4226'];
-  const P=Array.from({length:54},()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2+1.2,
-    dx:(Math.random()-.5)*.35,dy:(Math.random()-.5)*.35,color:colors[(Math.random()*colors.length)|0]}));
-  (function loop(){
-    ctx.clearRect(0,0,c.width,c.height);
-    for(const p of P){ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.color;ctx.fill();
-      p.x+=p.dx;p.y+=p.dy;if(p.x<0||p.x>c.width)p.dx*=-1;if(p.y<0||p.y>c.height)p.dy*=-1}
-    requestAnimationFrame(loop);
-  })();
-
-  /* timeline items slide in */
-  document.query
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200, once: true });
+  </script>
+</body>
+</html>
