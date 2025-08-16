@@ -13,7 +13,7 @@
       scroll-behavior: smooth;
     }
 
-    /* Intro animation */
+    /* Intro Animation */
     .intro {
       position: fixed;
       top: 0; left: 0;
@@ -26,7 +26,6 @@
       color: #3e2c23;
       font-size: 3rem;
       font-weight: bold;
-      opacity: 1;
       animation: fadeOut 3s ease forwards 2.5s;
     }
     .intro span {
@@ -34,150 +33,136 @@
       transform: scale(0.8);
       animation: popUp 1s ease forwards;
     }
-    @keyframes popUp {
-      to { opacity: 1; transform: scale(1); }
-    }
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }
+    @keyframes popUp { to { opacity: 1; transform: scale(1); } }
+    @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
 
     /* Navbar */
     header {
       position: fixed;
-      top: 0;
-      width: 100%;
+      top: 0; width: 100%;
       background: rgba(255,255,255,0.6);
       backdrop-filter: blur(6px);
-      padding: 12px 10%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 10px 8%;
+      display: flex; justify-content: space-between; align-items: center;
       z-index: 1000;
       transition: background 0.5s ease, box-shadow 0.5s ease;
     }
-    header.scrolled {
-      background: rgba(255, 200, 200, 0.9);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-    }
+    header.scrolled { background: rgba(255, 200, 200, 0.9); box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
     header a {
       text-decoration: none;
-      margin: 0 15px;
+      margin: 0 12px;
       color: #3e2c23;
       font-weight: 500;
-      transition: color 0.3s ease;
+      position: relative;
     }
-    header a:hover {
-      color: #b37a4c;
+    header a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -3px; left: 0;
+      background: #b37a4c;
+      transition: width 0.3s ease;
     }
+    header a:hover::after { width: 100%; }
 
     /* Hero */
     .hero {
-      min-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      min-height: 80vh;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
       text-align: center;
-      padding: 60px 10%;
-      animation: fadeIn 2s ease-in-out forwards;
+      padding: 40px 8%;
+      animation: fadeIn 2s ease forwards;
     }
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       animation: slideUp 1.5s ease forwards 0.5s;
     }
     .hero p {
-      font-size: 1.4rem;
-      margin-bottom: 20px;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
       color: #6b4226;
-      animation: fadeIn 2s ease forwards 1.2s;
+      border-right: 2px solid #6b4226;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards 1s;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
     }
     .btn {
-      padding: 12px 24px;
+      padding: 10px 22px;
       border: none;
       border-radius: 25px;
       background: #d2a679;
       color: white;
       cursor: pointer;
       font-size: 1rem;
-      transition: all 0.3s ease;
-      animation: fadeIn 2s ease forwards 1.8s;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
-    .btn:hover {
-      transform: scale(1.05);
-      background: #b37a4c;
-    }
+    .btn:hover { transform: scale(1.08); background: #b37a4c; }
 
     /* Sections */
     section {
-      padding: 50px 10%;
+      padding: 35px 8%;
       opacity: 0;
       transform: translateY(40px);
       transition: opacity 1s ease-out, transform 1s ease-out;
     }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    section.visible { opacity: 1; transform: translateY(0); }
     .section-title {
-      text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 30px;
-      position: relative;
+      text-align: center; font-size: 2rem; margin-bottom: 20px; position: relative;
     }
     .section-title::after {
-      content: "";
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 4px;
-      background: #d2a679;
-      border-radius: 2px;
+      content: ""; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%);
+      width: 50px; height: 3px; background: #d2a679; border-radius: 2px;
     }
 
     /* Projects */
     .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
     }
     .project-card {
       background: #fffaf5;
       border-radius: 15px;
-      padding: 25px;
+      padding: 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
     .project-card:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 8px 25px rgba(210,166,121,0.4);
+      transform: translateY(-8px) rotate(-1deg) scale(1.03);
+      box-shadow: 0 10px 25px rgba(210,166,121,0.5);
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 18px;
       background: #f1e0c5;
       color: #3e2c23;
-      margin-top: 40px;
+      margin-top: 25px;
+      animation: bounceIn 2s ease forwards;
     }
     footer .ps {
-      margin-top: 10px;
+      margin-top: 8px;
       font-style: italic;
       color: #6b4226;
       font-size: 0.95rem;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards 3s;
+    }
+    @keyframes bounceIn {
+      0% { transform: scale(0.9); opacity: 0; }
+      60% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); }
     }
 
     /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
@@ -202,19 +187,14 @@
   <section class="hero">
     <h1>Hello, I'm <span style="color:#a0522d">Wafa Navas</span></h1>
     <p>Crafting the future of food with science, creativity, and purpose.</p>
-    <div>
-      <a href="#contact"><button class="btn">Get in Touch</button></a>
-    </div>
+    <a href="#contact"><button class="btn">Get in Touch</button></a>
   </section>
 
   <!-- About -->
   <section id="about">
     <h2 class="section-title">About Me</h2>
     <p>
-      I am a First Rank graduate in B.Tech Food Technology (2020–2025) from Verghese Kurien Institute of Dairy and Food Technology, passionate about New Product Development and Research.
-    </p>
-    <p>
-      My work spans from plant-based frozen desserts to clean-label fat alternatives, reflecting my drive to bridge innovation and applicability. With hands-on experience at Synthite Industries and leadership in food-tech initiatives, I strive to create purposeful products that blend technical precision with real-world impact.
+      I am a First Rank graduate in B.Tech Food Technology (2020–2025) from Verghese Kurien Institute of Dairy and Food Technology, driven by a passion for New Product Development and Research. My journey has been defined by curiosity and creativity—exploring how food science can be applied to craft innovative, consumer-friendly products. From formulating plant-based frozen desserts that cater to dietary inclusivity, to investigating clean-label fat alternatives for healthier food systems, I aim to blend scientific precision with real-world impact. Through hands-on industrial training, research presentations, and leadership experiences, I continue to shape my vision of making future foods both purposeful and inspiring.
     </p>
   </section>
 
@@ -231,8 +211,8 @@
     <h3>Intern – New Product Development & Research</h3>
     <p>Synthite Industries | Oct 2024 – Mar 2025</p>
     <ul>
-      <li>Contributed to over 20 formulation trials for vegan proteins, brown flavor development, and shelf-life testing.</li>
-      <li>Collaborated with QA & R&D teams, following ISO 22000 and HACCP standards.</li>
+      <li>Contributed to 20+ formulation trials for vegan proteins and brown flavors.</li>
+      <li>Conducted shelf-life tests with Rancimat & Oxitest.</li>
     </ul>
   </section>
 
@@ -242,15 +222,11 @@
     <div class="projects">
       <div class="project-card">
         <h3>Frozen Dessert from Hemp Milk</h3>
-        <p>
-          Developed a novel dairy-free frozen dessert using hemp milk, targeting vegan and lactose-intolerant consumers. Focused on optimizing texture, mouthfeel, and sensory acceptance while ensuring nutritional richness. Demonstrated the potential of hemp-based formulations for sustainable, inclusive alternatives in frozen desserts.
-        </p>
+        <p>Developed a dairy-free frozen dessert using hemp milk, targeting vegan and lactose-intolerant consumers. Optimized texture and sensory acceptance while demonstrating hemp’s potential in sustainable frozen desserts.</p>
       </div>
       <div class="project-card">
-        <h3>Credit Seminar: Oleogels as Fat Replacers</h3>
-        <p>
-          Presented a seminar on oleogels—structured vegetable oils—as healthier alternatives to saturated fats in processed foods. Highlighted their role in improving texture, stability, and nutritional profile while reducing cardiovascular health risks. Showcased oleogels’ potential in modern food design for health-conscious consumers.
-        </p>
+        <h3>Oleogels as Fat Replacers</h3>
+        <p>Presented a seminar on oleogels as healthier alternatives to saturated fats. Showcased their role in stability, texture, and nutrition in modern food systems for health-conscious consumers.</p>
       </div>
     </div>
   </section>
@@ -268,7 +244,6 @@
   <!-- Contact -->
   <section id="contact">
     <h2 class="section-title">Get in Touch</h2>
-    <p>I am always open to new opportunities, collaborations, and innovative ideas.</p>
     <p>📧 <a href="mailto:wafa17.002@gmail.com">wafa17.002@gmail.com</a></p>
     <p>📞 <a href="tel:+918078754589">+91 8078754589</a></p>
     <p>🔗 <a href="https://linkedin.com/in/wafa-navas" target="_blank">LinkedIn</a></p>
@@ -284,22 +259,17 @@
   <script>
     const sections = document.querySelectorAll("section");
     const navbar = document.getElementById("navbar");
-
     const revealOnScroll = () => {
-      const trigger = window.innerHeight * 0.85;
+      const trigger = window.innerHeight * 0.8;
       sections.forEach(sec => {
         const top = sec.getBoundingClientRect().top;
         if (top < trigger) sec.classList.add("visible");
       });
     };
-
     window.addEventListener("scroll", () => {
       revealOnScroll();
-      if(window.scrollY > 50){
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
+      if(window.scrollY > 50){ navbar.classList.add("scrolled"); }
+      else { navbar.classList.remove("scrolled"); }
     });
     revealOnScroll();
   </script>
