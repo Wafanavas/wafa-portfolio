@@ -1,161 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wafa Navas | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
   <style>
-    /* ===== Global ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
+    /* Global pastel theme */
     body {
+      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f3e5d0, #d9b99b, #b08968, #6f4e37);
-      background-attachment: fixed;
-      color: #2c1810;
-      line-height: 1.6;
+      background: linear-gradient(180deg, #f5ede0, #e8dcc7, #d6c3aa);
+      color: #3b2f2f;
+      scroll-behavior: smooth;
     }
 
     header {
       position: sticky;
       top: 0;
+      background: rgba(245, 237, 224, 0.95);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       z-index: 1000;
-      background: rgba(243, 229, 208, 0.8);
-      backdrop-filter: blur(10px);
-      padding: 1.2rem 2rem;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      color: #4b2e2e;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.2rem;
-      color: #6f4e37;
-      font-style: italic;
-    }
-
-    nav {
-      margin-top: 1rem;
-    }
-
-    nav a {
-      margin: 0 15px;
+    header a {
       text-decoration: none;
-      font-weight: 600;
-      color: #5a3d2b;
+      color: #3b2f2f;
+      margin: 0 12px;
+      font-weight: 500;
       transition: color 0.3s;
     }
 
-    nav a:hover {
-      color: #d97706;
+    header a:hover {
+      color: #a67c52;
     }
 
     section {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 2rem;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.6);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-      transform: translateY(40px);
+      padding: 60px 10%;
+      min-height: 70vh;
       opacity: 0;
-      transition: all 1s ease;
+      transform: translateY(40px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
     }
-
-    section.show {
-      transform: translateY(0);
+    section.visible {
       opacity: 1;
+      transform: translateY(0);
     }
 
-    section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: #3a1f0b;
-      position: relative;
+    h1, h2, h3 {
+      color: #3b2f2f;
     }
 
-    section h2::after {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 4px;
-      background: #d97706;
-      margin: 0.5rem auto;
-      border-radius: 2px;
-    }
-
-    p {
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      color: #2c1810;
-    }
-
-    /* ===== Projects Scroll ===== */
-    .projects-scroll {
+    .hero {
       display: flex;
-      overflow-x: auto;
-      gap: 1.5rem;
-      scroll-snap-type: x mandatory;
-      padding-bottom: 1rem;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 90vh;
     }
 
-    .project {
-      min-width: 320px;
-      flex: 0 0 auto;
-      scroll-snap-align: start;
-      background: linear-gradient(135deg, #f3e5d0, #d9b99b);
-      padding: 1.5rem;
-      border-radius: 12px;
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.4rem;
+      color: #5c4433;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background: #a67c52;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      margin: 8px;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .btn:hover {
+      background: #8b623f;
+      transform: scale(1.05);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      background: #fff7ee;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.4s, box-shadow 0.4s;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
     }
-
-    .project:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-      background: linear-gradient(135deg, #f3e5d0, #b08968);
-    }
-
-    .project h3 {
-      color: #6f4e37;
-      margin-bottom: 0.5rem;
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
     }
 
     footer {
       text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-      background: rgba(243,229,208,0.8);
-      font-size: 0.9rem;
-      color: #4b2e2e;
-    }
-
-    footer a {
-      color: #6f4e37;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
+      padding: 20px;
+      background: #e8dcc7;
+      color: #5c4433;
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
-  <!-- ===== HEADER ===== -->
   <header>
-    <h1>Wafa Navas</h1>
-    <p>☕ Brewing innovation in food science, one idea at a time</p>
+    <div class="logo"><strong>Wafa Navas</strong></div>
     <nav>
       <a href="#about">About</a>
       <a href="#education">Education</a>
@@ -166,66 +128,61 @@
     </nav>
   </header>
 
-  <!-- ===== ABOUT ===== -->
+  <section class="hero visible">
+    <h1>Hello, I'm <span style="color:#a67c52;">Wafa Navas</span></h1>
+    <p>"Crafting healthier food futures through science and creativity."</p>
+    <a href="#contact" class="btn">Get in Touch</a>
+    <a href="Wafa Navas Resume.pdf" class="btn" download>Download Resume</a>
+  </section>
+
   <section id="about">
     <h2>About Me</h2>
     <p>
-      I am a First Rank graduate in B.Tech Food Technology (2020 – 2025) from Verghese Kurien Institute of Dairy and Food Technology, with a strong passion for New Product Development and Research. 
-      Through academic projects, industrial internships, and scientific presentations, I’ve explored the science behind formulating functional foods that meet evolving consumer needs.
-    </p>
-    <p>
-      My work spans from plant-based frozen desserts to clean-label fat alternatives, reflecting my drive to bridge innovation and applicability. With hands-on experience at Synthite Industries and a track record of leadership in food-tech initiatives, I strive to create purposeful products that blend technical precision with real-world impact.
+      I am a First Rank graduate in B.Tech Food Technology (2020–2025) from Verghese Kurien Institute of Dairy and Food Technology, passionate about New Product Development and Research. My journey reflects a blend of technical rigor and creativity, with projects and internships that explore functional foods, sustainability, and consumer-centric innovation.
     </p>
   </section>
 
-  <!-- ===== EDUCATION ===== -->
   <section id="education">
     <h2>Education</h2>
-    <p><strong>B.Tech Food Technology</strong><br>
-    Verghese Kurien Institute of Dairy and Food Technology (2020 – 2025)</p>
+    <h3>B.Tech in Food Technology</h3>
+    <p>Verghese Kurien Institute of Dairy and Food Technology (2020–2025)</p>
   </section>
 
-  <!-- ===== EXPERIENCE ===== -->
   <section id="experience">
     <h2>Experience</h2>
-    <p><strong>Intern – New Product Development & Research</strong><br>
-    Synthite Industries (Oct 2024 – Mar 2025)<br>
-    - Contributed to over 20 formulation trials for vegan proteins, brown flavor development, and shelf-life testing.<br>
-    - Collaborated across QA and R&D for pilot trials while following ISO 22000 and HACCP standards.</p>
+    <h3>Intern – New Product Development & Research, Synthite Industries</h3>
+    <p>
+      Worked on over 20 formulation trials including vegan proteins, brown flavor development, and oxidative stability tests (Rancimat & Oxitest). Collaborated with QA and R&D teams under ISO 22000 and HACCP standards.
+    </p>
   </section>
 
-  <!-- ===== PROJECTS ===== -->
   <section id="projects">
     <h2>Projects</h2>
-    <div class="projects-scroll">
-      <div class="project">
+    <div class="projects-grid">
+      <div class="project-card">
         <h3>Frozen Dessert from Hemp Milk</h3>
         <p>
-          Developed a dairy-free frozen dessert using hemp milk, designed for vegan and lactose-intolerant consumers. 
-          Focused on texture optimization, sensory acceptance, and nutritional balance, showcasing hemp milk’s 
-          potential as a sustainable and nutrient-rich dairy alternative.
+          Developed a dairy-free frozen dessert using hemp milk, aimed at addressing the rising demand for vegan and lactose-intolerant consumer products. This project combined sensory analysis, stability studies, and consumer acceptance trials to validate product viability.
         </p>
       </div>
-      <div class="project">
+      <div class="project-card">
         <h3>Credit Seminar: Oleogels as Fat Replacers</h3>
         <p>
-          Explored oleogels as structured vegetable oil systems for use as healthier fat alternatives. 
-          Demonstrated their ability to mimic saturated fats in food products while reducing health risks, 
-          paving the way for cleaner labels and nutritionally superior innovations.
+          Presented an in-depth study on oleogels—structured vegetable oil systems—as potential clean-label alternatives to saturated animal fats in processed foods. Highlighted their role in reducing health risks, improving texture, and enhancing product shelf-life.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ===== ACHIEVEMENTS ===== -->
   <section id="achievements">
     <h2>Achievements</h2>
-    <p>🏆 1st Prize – AMUL Case Study Competition (2023)</p>
-    <p>🏆 1st Prize – English Essay, Synthite Industries (2024)</p>
-    <p>🏆 Champion – Versification & Mime, KVASU (2023)</p>
+    <ul>
+      <li>1st Prize – AMUL Case Study Competition (2023)</li>
+      <li>1st Prize – English Essay, Synthite Industries (2024)</li>
+      <li>Champion – Versification & Mime, KVASU (2023)</li>
+    </ul>
   </section>
 
-  <!-- ===== CONTACT ===== -->
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:wafa17.002@gmail.com">wafa17.002@gmail.com</a></p>
@@ -233,21 +190,20 @@
     <p>LinkedIn: <a href="https://linkedin.com/in/wafa-navas" target="_blank">linkedin.com/in/wafa-navas</a></p>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>&copy; 2025 Wafa Navas | Designed with coffee-inspired pastel vibes ☕✨</p>
+    <p>&copy; 2025 Wafa Navas | Designed with care and creativity</p>
   </footer>
 
-  <!-- ===== Scroll Animation ===== -->
   <script>
+    // Scroll animation
     const sections = document.querySelectorAll("section");
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("show");
+          entry.target.classList.add("visible");
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.1 });
 
     sections.forEach(section => {
       observer.observe(section);
