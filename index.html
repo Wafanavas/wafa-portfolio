@@ -8,7 +8,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <!-- AOS Library -->
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
@@ -18,6 +18,32 @@
       background: #fdf9f4;
       color: #3e2723;
       overflow-x: hidden;
+    }
+
+    /* Intro Overlay */
+    .intro-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg, #fce1e4, #f9f6d8, #d9f6f2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3000;
+      animation: fadeOut 2.5s ease forwards 2.5s;
+    }
+    .intro-overlay h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #3e2723;
+      opacity: 0;
+      transform: scale(0.8);
+      animation: popUp 1s ease forwards;
+    }
+    @keyframes popUp {
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
     }
 
     /* Navbar */
@@ -63,6 +89,32 @@
       border-radius: 2px;
     }
 
+    /* Hero */
+    .intro {
+      text-align: center;
+      padding: 150px 20px 80px;
+    }
+    .intro h1 {
+      font-size: 42px;
+      font-weight: 700;
+      opacity: 0;
+      animation: popIn 1s forwards;
+      animation-delay: 3s; /* after overlay */
+    }
+    .intro h1 span { color: #a0522d; }
+    .intro p {
+      font-size: 20px;
+      margin-top: 10px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 3.5s;
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+
     /* Timeline */
     .timeline {
       position: relative;
@@ -93,7 +145,7 @@
     .timeline-item.right { left: 55%; }
     .timeline-item h3 { margin-top: 0; color: #8b4513; }
 
-    /* Leadership & Projects Cards */
+    /* Cards */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
@@ -109,12 +161,7 @@
     .card:hover { transform: translateY(-6px) scale(1.02); }
     .card h3 { margin-top: 0; color: #8b4513; }
 
-    /* Contact */
-    .contact-info { text-align: left; margin-top: 20px; }
-    .contact-info a { color: #2e64fe; text-decoration: none; }
-    .contact-info a:hover { text-decoration: underline; }
-
-    /* Fix text collapsing issue */
+    /* Text Fix */
     p, li {
       white-space: normal !important;
       overflow: visible !important;
@@ -122,7 +169,7 @@
       line-height: 1.6;
     }
 
-    /* PS Animation */
+    /* PS */
     .ps-line {
       margin-top: 20px;
       font-size: 18px;
@@ -155,6 +202,12 @@
   </style>
 </head>
 <body>
+  <!-- Intro Overlay -->
+  <div class="intro-overlay">
+    <h1>Wafa Navas</h1>
+  </div>
+
+  <!-- Navbar -->
   <header>
     <h1>Wafa Navas</h1>
     <nav>
@@ -167,11 +220,21 @@
     </nav>
   </header>
 
-  <section id="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>I am a First Rank graduate in B.Tech Food Technology (2020–2025), passionate about food innovation, science, and sustainability.</p>
+  <!-- Hero -->
+  <section class="intro">
+    <h1>Hello, I'm <span>Wafa Navas</span></h1>
+    <p>Crafting the future of food with science, creativity, and purpose.</p>
   </section>
 
+  <!-- About -->
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>
+      I am a First Rank graduate in B.Tech Food Technology from Verghese Kurien Institute of Dairy and Food Technology, deeply passionate about New Product Development and Research. Through academic projects, industrial internships, and scientific presentations, I’ve explored the science behind formulating functional foods that meet evolving consumer needs. My work spans from plant-based frozen desserts to clean-label fat alternatives, reflecting my drive to bridge innovation and applicability. With hands-on experience at Synthite Industries and a track record of leadership in food-tech initiatives, I strive to create purposeful products that blend technical precision with real-world impact.
+    </p>
+  </section>
+
+  <!-- Education -->
   <section id="education" data-aos="fade-up">
     <h2>Education</h2>
     <div class="timeline">
@@ -190,11 +253,18 @@
     </div>
   </section>
 
+  <!-- Experience -->
   <section id="experience" data-aos="fade-up">
     <h2>Experience</h2>
-    <p>Intern — Synthite Industries (2024–25). Worked on product innovation and food technology projects.</p>
+    <p>
+      As an Intern at Synthite Industries (2024–25), I contributed to product innovation and food technology projects.  
+      I collaborated with R&D teams to explore novel food ingredients and sustainable solutions.  
+      My work included hands-on lab experience, quality analysis, and exposure to industrial-scale processing,  
+      which strengthened my technical expertise and problem-solving skills.
+    </p>
   </section>
 
+  <!-- Leadership -->
   <section id="leadership" data-aos="fade-up">
     <h2>Leadership</h2>
     <div class="card-grid">
@@ -209,20 +279,26 @@
     </div>
   </section>
 
+  <!-- Projects -->
   <section id="projects" data-aos="fade-up">
     <h2>Projects</h2>
     <div class="card-grid">
       <div class="card" data-aos="flip-left">
         <h3>Frozen Dessert from Hemp Milk</h3>
-        <p>Developed a dairy-free frozen dessert using hemp milk, focusing on nutritional value, sensory evaluation, and sustainable food innovation as part of thesis research.</p>
+        <p>
+          This project focused on developing a plant-based frozen dessert using hemp milk as an alternative to dairy. Hemp milk was chosen for its high-quality protein, balanced fatty acid profile, and natural bioactive compounds. The study emphasized achieving a creamy mouthfeel and appealing sensory properties while remaining lactose-free and vegan-friendly. Various stabilizers and sweeteners were tested to optimize texture, melting resistance, and consumer acceptability. Results showed that hemp milk could serve as a viable base for frozen desserts, contributing to the growing demand for sustainable and functional non-dairy foods.
+        </p>
       </div>
       <div class="card" data-aos="flip-right">
-        <h3>Oleogels as Fat Replacers</h3>
-        <p>Presented a seminar on oleogels as clean-label fat alternatives in food processing, emphasizing health benefits and industrial applications.</p>
+        <h3>Credit Seminar: Oleogels as Novel Fat Replacers in Meat</h3>
+        <p>
+          This seminar examined the potential of oleogels—structured vegetable oil systems—as healthier replacements for saturated animal fats in meat products. Oleogels are formed by trapping liquid oils within a thermo-reversible gel network using oleogelators like waxes, monoglycerides, and phytosterols. My work reviewed various approaches to oleogel formation, including solvent exchange and foam templating, and assessed their functionality in meat systems such as patties, burgers, and sausages. Studies highlighted oleogels’ ability to improve nutritional profiles, reduce cooking loss, and maintain structural stability, while also acting as carriers for bioactive compounds. However, challenges remain in consumer acceptability and large-scale application, pointing to future research needs. This seminar deepened my understanding of lipid structuring, functional food innovation, and sustainable fat alternatives.
+        </p>
       </div>
     </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact" data-aos="fade-up">
     <h2>Get in Touch</h2>
     <div class="contact-info">
