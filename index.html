@@ -1,240 +1,159 @@
 <!DOCTYPE html>
-import React, { useEffect, useRef, useState } from 'react';
-import { Briefcase, Award, Mail, Phone, Linkedin, Link, BookOpen, Clock, GraduationCap } from 'lucide-react';
-
-// Custom hook to handle fade-in-on-scroll animation using IntersectionObserver
-const useFadeIn = (options) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-        observer.unobserve(entry.target);
-      }
-    }, options);
-
-    if (ref.current) {
-      observer.observe(ref.current);
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wafa Navas - Portfolio</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e6f7f9, #fff0f6, #f0f5ff);
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+      color: #333;
     }
+    .banner {
+      background: linear-gradient(120deg, #c9f1f3, #f9e1f0, #e3e8fa);
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 4px solid #6cb4b8;
+      text-align: center;
+    }
+    .banner h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: #444;
+      margin: 0;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    .banner h2 {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #555;
+      margin-top: 10px;
+    }
+    header {
+      background: #6cb4b8;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    }
+    header p {
+      margin: 5px 0 10px;
+      font-size: 1.1rem;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #444;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    .project {
+      background: white;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.15);
+    }
+    footer {
+      background: #444;
+      color: #ddd;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #9ee5e9;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
 
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, [ref, options]);
+  <!-- Banner -->
+  <div class="banner">
+    <h1>Wafa Navas</h1>
+    <h2>From lab to table: purposeful food innovation.</h2>
+  </div>
 
-  return [ref, isVisible];
-};
+  <header>
+    <p>Food Technologist | Researcher | Innovator</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-const FadeInOnScroll = ({ children, className }) => {
-  const [ref, isVisible] = useFadeIn({ threshold: 0.1 });
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am a First Rank graduate in B.Tech Food Technology from Verghese Kurien Institute of Dairy and Food Technology, deeply passionate about New Product Development and Research. 
+      Through academic projects, industrial internships, and scientific presentations, I’ve explored the science behind formulating functional foods that meet evolving consumer needs. 
+      My work spans from plant-based frozen desserts to clean-label fat alternatives, reflecting my drive to bridge innovation and applicability. 
+      With hands-on experience at Synthite Industries and a track record of leadership in food-tech initiatives, I strive to create purposeful products that blend technical precision with real-world impact.
+    </p>
+  </section>
 
-  return (
-    <div
-      ref={ref}
-      className={`transform transition-all duration-1000 ${className} ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
-    >
-      {children}
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="project">
+      <h3>Frozen Dessert from Hemp Milk</h3>
+      <p>
+        This project focused on developing a dairy-free frozen dessert using hemp milk as the base. 
+        It aimed to create a nutritious, vegan-friendly alternative for lactose-intolerant consumers. 
+        The work highlighted the potential of hemp as a sustainable ingredient for the future of plant-based foods.
+      </p>
     </div>
-  );
-};
 
-export default function App() {
-  const sections = [
-    { id: 'about', title: 'About' },
-    { id: 'education', title: 'Education' },
-    { id: 'experience', title: 'Experience' },
-    { id: 'projects', title: 'Projects' },
-    { id: 'achievements', title: 'Achievements' },
-    { id: 'contact', title: 'Contact' },
-  ];
-
-  return (
-    <div 
-      className="min-h-screen bg-gray-900 text-gray-100 font-sans antialiased"
-      style={{
-        backgroundImage: `radial-gradient(#2d3748 1px, transparent 1px)`,
-        backgroundSize: '20px 20px'
-      }}
-    >
-      <header className="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-sm shadow-lg">
-        <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <a href="#hero" className="text-2xl font-bold text-teal-400">Wafa Navas</a>
-          <div className="hidden md:flex space-x-6">
-            {sections.map(section => (
-              <a key={section.id} href={`#${section.id}`} className="text-gray-300 hover:text-teal-400 transition-colors duration-300">{section.title}</a>
-            ))}
-          </div>
-          <a href="#contact" className="px-4 py-2 bg-teal-500 text-white font-semibold rounded-full shadow-lg hover:bg-teal-600 transition-colors duration-300 hidden md:block">Get in Touch</a>
-        </nav>
-      </header>
-
-      <main className="container mx-auto px-4 py-8 md:py-16">
-        <section id="hero" className="flex flex-col md:flex-row items-center justify-center text-center md:text-left min-h-[70vh] mb-16 md:mb-24">
-          <div className="w-full md:w-2/3">
-            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-white mb-4">
-              Hello, I'm <span className="text-teal-400">Wafa Navas</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto md:mx-0">
-              Innovating the future of food, one purposeful product at a time.
-            </p>
-            <div className="flex justify-center md:justify-start space-x-4">
-              <a href="#contact" className="px-6 py-3 bg-teal-500 text-white font-bold rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300">
-                Get in Touch
-              </a>
-              <a href="/Wafa%20Navas%20Resume.pdf" download className="px-6 py-3 border border-gray-600 text-gray-300 font-bold rounded-full shadow-lg transform hover:bg-gray-800 transition-colors duration-300">
-                Download Resume
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section id="about" className="py-16 md:py-24">
-          <FadeInOnScroll>
-            <div className="text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 flex items-center justify-center">
-                About Me
-              </h2>
-              <p className="text-lg text-gray-400 leading-relaxed mb-4 max-w-4xl mx-auto">
-                I am a First Rank graduate in B.Tech Food Technology from Verghese Kurien Institute of Dairy and Food Technology, deeply passionate about New Product Development and Research. Through academic projects, industrial internships, and scientific presentations, I’ve explored the science behind formulating functional foods that meet evolving consumer needs.
-              </p>
-              <p className="text-lg text-gray-400 leading-relaxed max-w-4xl mx-auto">
-                My work spans from plant-based frozen desserts to clean-label fat alternatives, reflecting my drive to bridge innovation and applicability. With hands-on experience at Synthite Industries and a track record of leadership in food-tech initiatives, I strive to create purposeful products that blend technical precision with real-world impact.
-              </p>
-            </div>
-          </FadeInOnScroll>
-        </section>
-
-        <section id="education" className="py-16 md:py-24">
-          <FadeInOnScroll>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center flex items-center justify-center">
-              Education
-            </h2>
-            <div className="relative border-l-4 border-gray-700 ml-4 md:ml-12">
-              <div className="mb-8 ml-6">
-                <div className="absolute w-4 h-4 bg-teal-500 rounded-full mt-1.5 -left-2 border-2 border-gray-900"></div>
-                <h3 className="text-2xl font-semibold text-white">B.Tech Food Technology</h3>
-                <p className="text-gray-400">Verghese Kurien Institute of Dairy and Food Technology</p>
-                <p className="text-sm text-gray-500 flex items-center mt-1">2021 – 2025</p>
-              </div>
-            </div>
-          </FadeInOnScroll>
-        </section>
-        
-        <section id="experience" className="py-16 md:py-24">
-          <FadeInOnScroll>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center flex items-center justify-center">
-              Experience
-            </h2>
-            <div className="relative border-l-4 border-gray-700 ml-4 md:ml-12">
-              <div className="mb-8 ml-6">
-                <div className="absolute w-4 h-4 bg-teal-500 rounded-full mt-1.5 -left-2 border-2 border-gray-900"></div>
-                <h3 className="text-2xl font-semibold text-white">Intern – New Product Development & Research</h3>
-                <p className="text-gray-400">Synthite Industries</p>
-                <p className="text-sm text-gray-500 flex items-center mt-1">Oct 2024 – Mar 2025</p>
-                <ul className="list-disc list-inside text-gray-300 mt-2 ml-4 space-y-1">
-                  <li>Contributed to over 20 formulation trials for vegan proteins, brown flavor development, and shelf-life testing using Rancimat and Oxitest.</li>
-                  <li>Collaborated across QA and R&D for pilot trials while following ISO 22000 and HACCP standards.</li>
-                </ul>
-              </div>
-            </div>
-          </FadeInOnScroll>
-        </section>
-
-        <section id="projects" className="py-16 md:py-24">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center flex items-center justify-center">
-            Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <FadeInOnScroll className="h-full">
-              <div className="bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-700 h-full">
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Frozen Dessert from Hemp Milk</h3>
-                  <p className="text-gray-400 mb-4">
-                    This project involved developing a dairy-free frozen dessert using hemp milk as the primary base—targeting vegan and lactose-intolerant consumers. I optimized formulations with stabilizers and emulsifiers to reduce off-flavors and improve texture. The final product showed better melting resistance and sensory acceptance, aligning with growing demand for plant-based foods.
-                  </p>
-                </div>
-              </div>
-            </FadeInOnScroll>
-            <FadeInOnScroll className="h-full">
-              <div className="bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-700 h-full">
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Credit Seminar: Oleogels as Fat Replacers</h3>
-                  <p className="text-gray-400 mb-4">
-                    My seminar explored oleogels—structured vegetable oil systems—as healthier replacements for saturated animal fats in processed meat products. I evaluated structuring agents and formation methods, and highlighted their potential to enhance nutritional profiles while retaining product stability and sensory quality.
-                  </p>
-                </div>
-              </div>
-            </FadeInOnScroll>
-          </div>
-        </section>
-
-        <section id="achievements" className="py-16 md:py-24">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center flex items-center justify-center">
-            Achievements
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <FadeInOnScroll>
-              <div className="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 flex items-center">
-                <p className="text-lg font-semibold text-gray-300">1st Prize – AMUL Case Study Competition (2023)</p>
-              </div>
-            </FadeInOnScroll>
-            <FadeInOnScroll>
-              <div className="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 flex items-center">
-                <p className="text-lg font-semibold text-gray-300">1st Prize – English Essay, Synthite Industries (2024)</p>
-              </div>
-            </FadeInOnScroll>
-            <FadeInOnScroll>
-              <div className="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 flex items-center">
-                <p className="text-lg font-semibold text-gray-300">Champion – Versification & Mime, KVASU (2023)</p>
-              </div>
-            </FadeInOnScroll>
-          </div>
-        </section>
-
-        <section id="contact" className="py-16 md:py-24">
-          <FadeInOnScroll>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 text-center flex items-center justify-center">
-              Get in Touch
-            </h2>
-            <div className="max-w-lg mx-auto text-center">
-              <p className="text-lg text-gray-300 mb-8">
-                I am always open to discussing new opportunities, collaborations, and innovative ideas. Feel free to reach out!
-              </p>
-              <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-8 justify-center">
-                <div className="flex items-center space-x-3">
-                  <a href="mailto:wafa17.002@gmail.com" className="text-gray-300 hover:text-teal-400 transition-colors duration-300">
-                    wafa17.002@gmail.com
-                  </a>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <a href="tel:+918078754589" className="text-gray-300 hover:text-teal-400 transition-colors duration-300">
-                    +91 8078754589
-                  </a>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <a href="https://linkedin.com/in/wafa-navas" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-teal-400 transition-colors duration-300">
-                    linkedin.com/in/wafa-navas
-                  </a>
-                </div>
-              </div>
-            </div>
-          </FadeInOnScroll>
-        </section>
-      </main>
-
-      <footer className="bg-gray-950 py-8 text-center text-gray-500 border-t border-gray-800">
-        <p>&copy; 2025 Wafa Navas. All rights reserved.</p>
-        <p className="text-sm mt-2">Designed with care and purpose 🌿</p>
-        <a href="#hero" className="mt-4 inline-block text-teal-400 hover:text-teal-300">
-          ↑ Top
-        </a>
-      </footer>
+    <div class="project">
+      <h3>Credit Seminar: Oleogels as Fat Replacers</h3>
+      <p>
+        My seminar explored the use of oleogels—structured vegetable oil systems—as healthier replacements for saturated animal fats in processed food products. 
+        This research demonstrated how oleogels can enhance product stability, reduce health risks, and align with consumer demand for clean-label solutions.
+      </p>
     </div>
-  );
-}
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p style="text-align:center;">
+      Email: <a href="mailto:wafa17.002@gmail.com">wafa17.002@gmail.com</a><br>
+      Phone: +91 8078754589<br>
+      LinkedIn: <a href="https://linkedin.com/in/wafa-navas" target="_blank">linkedin.com/in/wafa-navas</a><br>
+      <a href="Wafa%20Navas%20Resume.pdf" download>Download Resume</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Wafa Navas. All rights reserved.</p>
+    <p>Designed with a pastel touch 🌸</p>
+  </footer>
+
+</body>
+</html>
