@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wafa Navas | Portfolio</title>
   <style>
-    /* ===== Global Styles ===== */
+    /* ===== Global ===== */
     * {
       margin: 0;
       padding: 0;
@@ -15,9 +15,9 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fce7f3, #e0f2fe, #f3e8ff);
+      background: linear-gradient(135deg, #f3e5d0, #d9b99b, #b08968, #6f4e37);
       background-attachment: fixed;
-      color: #333;
+      color: #2c1810;
       line-height: 1.6;
     }
 
@@ -25,22 +25,22 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(243, 229, 208, 0.8);
       backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
+      padding: 1.2rem 2rem;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
     header h1 {
       font-size: 2.5rem;
-      color: #374151;
+      color: #4b2e2e;
     }
 
     header p {
       font-size: 1.2rem;
       margin-top: 0.2rem;
-      color: #6b7280;
+      color: #6f4e37;
       font-style: italic;
     }
 
@@ -52,12 +52,12 @@
       margin: 0 15px;
       text-decoration: none;
       font-weight: 600;
-      color: #4b5563;
+      color: #5a3d2b;
       transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #ec4899;
+      color: #d97706;
     }
 
     section {
@@ -65,7 +65,7 @@
       margin: 3rem auto;
       padding: 2rem;
       border-radius: 16px;
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.6);
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
       transform: translateY(40px);
       opacity: 0;
@@ -81,7 +81,7 @@
       text-align: center;
       font-size: 2rem;
       margin-bottom: 1.5rem;
-      color: #111827;
+      color: #3a1f0b;
       position: relative;
     }
 
@@ -90,7 +90,7 @@
       display: block;
       width: 80px;
       height: 4px;
-      background: #ec4899;
+      background: #d97706;
       margin: 0.5rem auto;
       border-radius: 2px;
     }
@@ -98,30 +98,37 @@
     p {
       font-size: 1rem;
       margin-bottom: 1rem;
-      color: #374151;
+      color: #2c1810;
     }
 
-    /* Projects Grid */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* ===== Projects Scroll ===== */
+    .projects-scroll {
+      display: flex;
+      overflow-x: auto;
       gap: 1.5rem;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1rem;
     }
 
     .project {
-      background: linear-gradient(135deg, #fdf2f8, #e0f2fe);
+      min-width: 320px;
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      background: linear-gradient(135deg, #f3e5d0, #d9b99b);
       padding: 1.5rem;
       border-radius: 12px;
       transition: transform 0.4s, box-shadow 0.4s;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
     }
 
     .project:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+      background: linear-gradient(135deg, #f3e5d0, #b08968);
     }
 
     .project h3 {
-      color: #db2777;
+      color: #6f4e37;
       margin-bottom: 0.5rem;
     }
 
@@ -129,13 +136,13 @@
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
-      background: rgba(255,255,255,0.8);
+      background: rgba(243,229,208,0.8);
       font-size: 0.9rem;
-      color: #4b5563;
+      color: #4b2e2e;
     }
 
     footer a {
-      color: #2563eb;
+      color: #6f4e37;
       text-decoration: none;
     }
 
@@ -148,7 +155,7 @@
   <!-- ===== HEADER ===== -->
   <header>
     <h1>Wafa Navas</h1>
-    <p>✨ From lab to table: purposeful food innovation ✨</p>
+    <p>☕ Brewing innovation in food science, one idea at a time</p>
     <nav>
       <a href="#about">About</a>
       <a href="#education">Education</a>
@@ -190,21 +197,21 @@
   <!-- ===== PROJECTS ===== -->
   <section id="projects">
     <h2>Projects</h2>
-    <div class="projects">
+    <div class="projects-scroll">
       <div class="project">
         <h3>Frozen Dessert from Hemp Milk</h3>
         <p>
-          This project focused on creating a sustainable and dairy-free frozen dessert using hemp milk. 
-          Beyond formulation, I carried out sensory evaluation and texture optimization to ensure consumer acceptance. 
-          The project showcased hemp milk’s potential as a nutritious and eco-friendly alternative in mainstream food markets.
+          Developed a dairy-free frozen dessert using hemp milk, designed for vegan and lactose-intolerant consumers. 
+          Focused on texture optimization, sensory acceptance, and nutritional balance, showcasing hemp milk’s 
+          potential as a sustainable and nutrient-rich dairy alternative.
         </p>
       </div>
       <div class="project">
         <h3>Credit Seminar: Oleogels as Fat Replacers</h3>
         <p>
-          My seminar explored oleogels—structured vegetable oil systems—as a healthier alternative to saturated fats. 
-          It highlighted how oleogels can maintain texture and stability in processed foods while significantly improving nutritional quality, 
-          opening pathways to develop indulgent yet health-focused food products.
+          Explored oleogels as structured vegetable oil systems for use as healthier fat alternatives. 
+          Demonstrated their ability to mimic saturated fats in food products while reducing health risks, 
+          paving the way for cleaner labels and nutritionally superior innovations.
         </p>
       </div>
     </div>
@@ -228,10 +235,10 @@
 
   <!-- ===== FOOTER ===== -->
   <footer>
-    <p>&copy; 2025 Wafa Navas | Designed with pastel vibes 🌸</p>
+    <p>&copy; 2025 Wafa Navas | Designed with coffee-inspired pastel vibes ☕✨</p>
   </footer>
 
-  <!-- ===== Scroll Animation Script ===== -->
+  <!-- ===== Scroll Animation ===== -->
   <script>
     const sections = document.querySelectorAll("section");
     const observer = new IntersectionObserver(entries => {
