@@ -43,7 +43,7 @@
     header .logo { font-weight: bold; font-size: 1rem; color: #6b4226; white-space: nowrap; }
     header nav {
       display: flex; flex-wrap: wrap; justify-content: flex-end;
-      gap: 8px;
+      gap: 10px;
       max-width: 100%;
     }
     header nav a {
@@ -92,6 +92,51 @@
       width: 35px; height: 3px; background: #d2a679; border-radius: 2px;
     }
 
+    /* Education Timeline */
+    .timeline {
+      position: relative; margin: 10px auto; padding-left: 20px;
+      border-left: 2px solid #b37a4c; max-width: 600px;
+    }
+    .timeline-item {
+      margin: 10px 0; position: relative; padding-left: 20px;
+      animation: slideIn 1s ease forwards;
+    }
+    .timeline-item::before {
+      content: ""; position: absolute; width: 10px; height: 10px; border-radius: 50%;
+      background: #b37a4c; left: -6px; top: 5px;
+    }
+    .timeline-item h3 { margin: 0; font-size: 1rem; }
+    .timeline-item p { margin: 3px 0; font-size: 0.9rem; color: #5a4032; }
+    @keyframes slideIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+
+    /* Leadership Cards */
+    .leadership-cards {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 12px;
+    }
+    .card {
+      background: rgba(255,255,255,0.7); border-radius: 12px; padding: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease;
+    }
+    .card:hover { transform: translateY(-6px) rotate(-1deg) scale(1.02); }
+    .card h3 { margin-top: 0; color: #a0522d; }
+
+    /* Projects */
+    .projects {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .project-card {
+      background: rgba(255,255,255,0.7); padding: 12px; border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 8px 18px rgba(210,166,121,0.45);
+    }
+
     /* Footer */
     footer { text-align: center; padding: 8px; background: #f1e0c5; font-size: 0.8rem; }
     footer .ps {
@@ -116,7 +161,7 @@
     @keyframes blink { 50% { border-color: transparent } }
     @keyframes glow { from { text-shadow: 0 0 4px #d2a679; } to { text-shadow: 0 0 12px #b37a4c; } }
 
-    /* Responsive Fix */
+    /* Responsive */
     @media(max-width: 768px){
       header nav { justify-content: center; }
       .hero h1 { font-size: 1.5rem; }
@@ -141,10 +186,89 @@
     </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
     <h1>Hello, I'm <span style="color:#a0522d">Wafa Navas</span></h1>
     <p>Crafting the future of food with science, creativity, and purpose.</p>
     <a href="#contact"><button class="btn">Get in Touch</button></a>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <p>
+      I am a First Rank graduate in B.Tech Food Technology (2020–2025) from Verghese Kurien Institute of Dairy and Food Technology, driven by a passion for New Product Development and Research. My journey has been defined by curiosity and creativity—exploring how food science can be applied to craft innovative, consumer-friendly products. From formulating plant-based frozen desserts that cater to dietary inclusivity, to investigating clean-label fat alternatives for healthier food systems, I aim to blend scientific precision with real-world impact. Through hands-on industrial training, research presentations, and leadership experiences, I continue to shape my vision of making future foods both purposeful and inspiring.
+    </p>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>B.Tech Food Technology</h3>
+        <p>Verghese Kurien Institute of Dairy and Food Technology (2020–2025)</p>
+      </div>
+      <div class="timeline-item">
+        <h3>XII — CBSE</h3>
+        <p>Kendriya Vidyalaya, Kadavanthra, Ernakulam (2020) — 93.4%</p>
+      </div>
+      <div class="timeline-item">
+        <h3>X — CBSE</h3>
+        <p>Kendriya Vidyalaya, Kadavanthra, Ernakulam (2018) — 96.8%</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <h2 class="section-title">Experience</h2>
+    <h3>Intern – New Product Development & Research</h3>
+    <p>Synthite Industries | Oct 2024 – Mar 2025</p>
+    <ul>
+      <li>Contributed to 20+ formulation trials for vegan proteins and brown flavors.</li>
+      <li>Conducted shelf-life tests with Rancimat & Oxitest.</li>
+    </ul>
+  </section>
+
+  <!-- Leadership -->
+  <section id="leadership">
+    <h2 class="section-title">Leadership</h2>
+    <div class="leadership-cards">
+      <div class="card">
+        <h3>Vice President, Students' Union (2022–23)</h3>
+        <p>Organized cultural and academic events, represented student concerns, resolved issues, and acted as a bridge between faculty and students to ensure smoother campus experiences.</p>
+      </div>
+      <div class="card">
+        <h3>Student Coordinator — FoodZone & FoodSalvatio (2020–23)</h3>
+        <p>Led awareness campaigns, national programs, and classes on World Food Day & Food Safety Day in collaboration with AFSTI. Conducted surveys, engaged school students, and promoted food sustainability.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Frozen Dessert from Hemp Milk</h3>
+        <p>Developed a dairy-free frozen dessert using hemp milk, targeting vegan and lactose-intolerant consumers. Optimized texture and sensory acceptance while demonstrating hemp’s potential in sustainable frozen desserts.</p>
+      </div>
+      <div class="project-card">
+        <h3>Oleogels as Fat Replacers</h3>
+        <p>Presented a seminar on oleogels as healthier alternatives to saturated fats. Showcased their role in stability, texture, and nutrition in modern food systems for health-conscious consumers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements -->
+  <section id="achievements">
+    <h2 class="section-title">Achievements</h2>
+    <ul>
+      <li>1st Prize – AMUL Case Study Competition (2023)</li>
+      <li>1st Prize – English Essay, Synthite Industries (2024)</li>
+      <li>Champion – Versification & Mime, KVASU (2023)</li>
+    </ul>
   </section>
 
   <!-- Contact -->
