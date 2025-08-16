@@ -5,43 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wafa Navas | Portfolio</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* ===== Global Styles ===== */
+    * {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #fce7f3, #e0f2fe, #ecfdf5);
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fce7f3, #e0f2fe, #f3e8ff);
       background-attachment: fixed;
       color: #333;
+      line-height: 1.6;
     }
 
     header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
       text-align: center;
-      padding: 2rem 1rem 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
     header h1 {
-      margin: 0;
-      font-size: 3rem;
-      color: #4b5563;
+      font-size: 2.5rem;
+      color: #374151;
     }
 
     header p {
-      margin-top: 0.5rem;
       font-size: 1.2rem;
-      font-weight: 500;
+      margin-top: 0.2rem;
       color: #6b7280;
+      font-style: italic;
     }
 
     nav {
-      text-align: center;
       margin-top: 1rem;
     }
 
     nav a {
       margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
-      color: #374151;
+      font-weight: 600;
+      color: #4b5563;
       transition: color 0.3s;
     }
 
@@ -50,55 +61,77 @@
     }
 
     section {
-      max-width: 900px;
-      margin: 2rem auto;
+      max-width: 1000px;
+      margin: 3rem auto;
       padding: 2rem;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transform: translateY(40px);
+      opacity: 0;
+      transition: all 1s ease;
+    }
+
+    section.show {
+      transform: translateY(0);
+      opacity: 1;
     }
 
     section h2 {
       text-align: center;
       font-size: 2rem;
       margin-bottom: 1.5rem;
-      color: #1f2937;
+      color: #111827;
+      position: relative;
     }
 
-    section p {
-      line-height: 1.7;
+    section h2::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #ec4899;
+      margin: 0.5rem auto;
+      border-radius: 2px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
       color: #374151;
     }
 
+    /* Projects Grid */
     .projects {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
     }
 
     .project {
+      background: linear-gradient(135deg, #fdf2f8, #e0f2fe);
       padding: 1.5rem;
       border-radius: 12px;
-      background: #fdf2f8;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.4s, box-shadow 0.4s;
     }
 
     .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
 
     .project h3 {
-      margin-top: 0;
       color: #db2777;
+      margin-bottom: 0.5rem;
     }
 
     footer {
       text-align: center;
       padding: 1rem;
-      background: rgba(255,255,255,0.7);
-      font-size: 0.9rem;
       margin-top: 2rem;
+      background: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      color: #4b5563;
     }
 
     footer a {
@@ -112,6 +145,7 @@
   </style>
 </head>
 <body>
+  <!-- ===== HEADER ===== -->
   <header>
     <h1>Wafa Navas</h1>
     <p>✨ From lab to table: purposeful food innovation ✨</p>
@@ -125,22 +159,26 @@
     </nav>
   </header>
 
+  <!-- ===== ABOUT ===== -->
   <section id="about">
     <h2>About Me</h2>
     <p>
-      I am a First Rank graduate in B.Tech Food Technology from Verghese Kurien Institute of Dairy and Food Technology, passionate about New Product Development and Research. Through academic projects, industrial internships, and scientific presentations, I’ve explored the science behind formulating functional foods that meet evolving consumer needs.
+      I am a First Rank graduate in B.Tech Food Technology (2020 – 2025) from Verghese Kurien Institute of Dairy and Food Technology, with a strong passion for New Product Development and Research. 
+      Through academic projects, industrial internships, and scientific presentations, I’ve explored the science behind formulating functional foods that meet evolving consumer needs.
     </p>
     <p>
       My work spans from plant-based frozen desserts to clean-label fat alternatives, reflecting my drive to bridge innovation and applicability. With hands-on experience at Synthite Industries and a track record of leadership in food-tech initiatives, I strive to create purposeful products that blend technical precision with real-world impact.
     </p>
   </section>
 
+  <!-- ===== EDUCATION ===== -->
   <section id="education">
     <h2>Education</h2>
     <p><strong>B.Tech Food Technology</strong><br>
-    Verghese Kurien Institute of Dairy and Food Technology (2021 – 2025)</p>
+    Verghese Kurien Institute of Dairy and Food Technology (2020 – 2025)</p>
   </section>
 
+  <!-- ===== EXPERIENCE ===== -->
   <section id="experience">
     <h2>Experience</h2>
     <p><strong>Intern – New Product Development & Research</strong><br>
@@ -149,26 +187,30 @@
     - Collaborated across QA and R&D for pilot trials while following ISO 22000 and HACCP standards.</p>
   </section>
 
+  <!-- ===== PROJECTS ===== -->
   <section id="projects">
     <h2>Projects</h2>
     <div class="projects">
       <div class="project">
         <h3>Frozen Dessert from Hemp Milk</h3>
         <p>
-          This project focused on developing a dairy-free frozen dessert using hemp milk as a sustainable, nutritious alternative for lactose-intolerant and vegan consumers. 
-          Beyond formulation, the study explored sensory evaluation, texture optimization, and consumer acceptance — showing the potential of hemp milk in mainstream food innovation.
+          This project focused on creating a sustainable and dairy-free frozen dessert using hemp milk. 
+          Beyond formulation, I carried out sensory evaluation and texture optimization to ensure consumer acceptance. 
+          The project showcased hemp milk’s potential as a nutritious and eco-friendly alternative in mainstream food markets.
         </p>
       </div>
       <div class="project">
         <h3>Credit Seminar: Oleogels as Fat Replacers</h3>
         <p>
-          My seminar examined the use of oleogels — structured vegetable oil systems — as healthier replacements for saturated animal fats in processed foods. 
-          The research highlighted oleogels’ ability to retain texture and stability while improving nutritional profiles, contributing to the development of healthier yet indulgent food products.
+          My seminar explored oleogels—structured vegetable oil systems—as a healthier alternative to saturated fats. 
+          It highlighted how oleogels can maintain texture and stability in processed foods while significantly improving nutritional quality, 
+          opening pathways to develop indulgent yet health-focused food products.
         </p>
       </div>
     </div>
   </section>
 
+  <!-- ===== ACHIEVEMENTS ===== -->
   <section id="achievements">
     <h2>Achievements</h2>
     <p>🏆 1st Prize – AMUL Case Study Competition (2023)</p>
@@ -176,6 +218,7 @@
     <p>🏆 Champion – Versification & Mime, KVASU (2023)</p>
   </section>
 
+  <!-- ===== CONTACT ===== -->
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:wafa17.002@gmail.com">wafa17.002@gmail.com</a></p>
@@ -183,8 +226,25 @@
     <p>LinkedIn: <a href="https://linkedin.com/in/wafa-navas" target="_blank">linkedin.com/in/wafa-navas</a></p>
   </section>
 
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>&copy; 2025 Wafa Navas. Designed with pastel vibes 🌸</p>
+    <p>&copy; 2025 Wafa Navas | Designed with pastel vibes 🌸</p>
   </footer>
+
+  <!-- ===== Scroll Animation Script ===== -->
+  <script>
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
