@@ -9,10 +9,10 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #fce7f3, #dbeafe, #ecfdf5);
+      background: linear-gradient(135deg, #fce7f3, #e0f2fe, #ecfdf5);
       background-size: 400% 400%;
-      animation: gradientBG 12s ease infinite;
-      color: #1f2937;
+      animation: gradientBG 15s ease infinite;
+      color: #374151;
       line-height: 1.6;
     }
     @keyframes gradientBG {
@@ -23,59 +23,67 @@
     header {
       position: sticky;
       top: 0;
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(10px);
-      padding: 15px;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
+      padding: 10px;
       text-align: center;
       z-index: 10;
+      border-bottom: 1px solid #f3e8ff;
     }
     header h1 {
       margin: 0;
-      color: #111827;
-      font-size: 2rem;
+      color: #6d28d9;
+      font-size: 1.8rem;
     }
     nav a {
-      margin: 0 12px;
-      color: #374151;
+      margin: 0 10px;
+      color: #4b5563;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
+      transition: color 0.3s ease;
     }
     nav a:hover {
-      color: #111827;
+      color: #a78bfa;
     }
     section {
-      padding: 80px 10%;
+      padding: 50px 8%;
     }
     h2 {
       text-align: center;
-      color: #111827;
-      margin-bottom: 40px;
-      font-size: 2rem;
+      color: #6d28d9;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
     }
     .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 70vh;
       text-align: center;
-      padding: 120px 20px;
+      padding: 20px;
     }
     .hero h1 {
-      font-size: 3rem;
-      color: #111827;
+      font-size: 2.5rem;
+      color: #1e293b;
+      margin-bottom: 10px;
     }
     .hero p {
-      font-size: 1.5rem;
-      color: #374151;
+      font-size: 1.3rem;
+      color: #475569;
       font-style: italic;
-      margin-top: 10px;
     }
     .card {
-      background: white;
-      padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
-      transition: transform 0.3s ease;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 1.5rem;
+      border-radius: 18px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     }
     .projects-grid {
       display: grid;
@@ -84,10 +92,18 @@
     }
     footer {
       text-align: center;
-      padding: 30px;
-      background: rgba(255,255,255,0.7);
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.6);
       backdrop-filter: blur(10px);
-      color: #374151;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #a78bfa;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -107,7 +123,7 @@
 
   <!-- Hero -->
   <section class="hero" data-aos="fade-up">
-    <h1>Hello, I'm <span style="color:#2563eb;">Wafa Navas</span></h1>
+    <h1>Hello, I'm <span style="color:#a78bfa;">Wafa Navas</span></h1>
     <p>From lab to table: purposeful food innovation.</p>
   </section>
 
@@ -199,12 +215,13 @@
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Wafa Navas. Designed with pastel & purpose 🌸</p>
+    <a href="#top">↑ Back to Top</a>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({
-      duration: 1200,
+      duration: 1000,
       once: true
     });
   </script>
