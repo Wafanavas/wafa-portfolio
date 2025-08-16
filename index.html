@@ -115,6 +115,16 @@
     }
     @keyframes fadeIn { to { opacity: 1; } }
 
+    /* About Me animation */
+    #about p {
+      animation: aboutFade 2s ease forwards;
+      opacity: 0;
+    }
+    @keyframes aboutFade {
+      from { opacity: 0; transform: translateY(30px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
     /* Timeline */
     .timeline {
       position: relative;
@@ -179,7 +189,7 @@
     }
     .ps-line span {
       display: inline-block;
-      animation: glow 2s infinite alternate, typing 4s steps(40,end);
+      animation: glow 2s infinite alternate, typing 6s steps(60,end) infinite;
       white-space: nowrap;
       overflow: hidden;
       border-right: 2px solid #c58b59;
@@ -189,8 +199,10 @@
       to   { text-shadow: 0 0 20px #ffb347; }
     }
     @keyframes typing {
-      from { width: 0; }
-      to   { width: 100%; }
+      0% { width: 0; }
+      40% { width: 100%; }
+      60% { width: 100%; }
+      100% { width: 0; }
     }
 
     footer {
@@ -257,10 +269,7 @@
   <section id="experience" data-aos="fade-up">
     <h2>Experience</h2>
     <p>
-      As an Intern at Synthite Industries (2024–25), I contributed to product innovation and food technology projects.  
-      I collaborated with R&D teams to explore novel food ingredients and sustainable solutions.  
-      My work included hands-on lab experience, quality analysis, and exposure to industrial-scale processing,  
-      which strengthened my technical expertise and problem-solving skills.
+      During my internship at <strong>Synthite Industries Pvt. Ltd. (Oct 2024 – Mar 2025)</strong>, I worked in <strong>New Product Development & Research (NPD&R)</strong>, contributing to the creation of natural flavors and plant-based proteins. I executed lab-scale formulation and extraction trials, performed oxidative stability testing with Rancimat and Oxitest, and optimized prototypes through sensory evaluations. Supporting 20+ formulation trials, I helped advance two vegan protein formulations to pilot production, while collaborating with R&D and QA teams to ensure compliance with HACCP and ISO 22000 standards. This experience strengthened my technical expertise in food innovation, analytical testing, and sustainable product development.
     </p>
   </section>
 
