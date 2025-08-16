@@ -1,280 +1,220 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wafa Navas | Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fce1e4, #f9f6d8, #d9f6f2);
-      color: #3e2c23;
-      scroll-behavior: smooth;
-    }
-
-    /* Intro Animation */
-    .intro {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, #fce1e4, #f9f6d8, #d9f6f2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-      color: #3e2c23;
-      font-size: 3rem;
-      font-weight: bold;
-      animation: fadeOut 3s ease forwards 2.5s;
-    }
-    .intro span {
-      opacity: 0;
-      transform: scale(0.8);
-      animation: popUp 1s ease forwards;
-    }
-    @keyframes popUp { to { opacity: 1; transform: scale(1); } }
-    @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
-
-    /* Navbar */
-    header {
-      position: fixed;
-      top: 0; width: 100%;
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(6px);
-      padding: 8px 8%;
-      display: flex; justify-content: space-between; align-items: center;
-      z-index: 1000;
-      transition: background 0.5s ease, box-shadow 0.5s ease;
-    }
-    header.scrolled { background: rgba(255, 200, 200, 0.9); box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
-    header a {
-      text-decoration: none;
-      margin: 0 10px;
-      color: #3e2c23;
-      font-weight: 500;
-      position: relative;
-    }
-    header a::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -3px; left: 0;
-      background: #b37a4c;
-      transition: width 0.3s ease;
-    }
-    header a:hover::after { width: 100%; }
-
-    /* Hero */
-    .hero {
-      min-height: 70vh;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center;
-      padding: 25px 8%;
-      animation: fadeIn 2s ease forwards;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      animation: slideUp 1.5s ease forwards 0.5s;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-      color: #6b4226;
-      border-right: 2px solid #6b4226;
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      animation: typing 4s steps(40, end) forwards 1s;
-    }
-    @keyframes typing { from { width: 0 } to { width: 100% } }
-    .btn {
-      padding: 8px 18px;
-      border: none;
-      border-radius: 20px;
-      background: #d2a679;
-      color: white;
-      cursor: pointer;
-      font-size: 0.95rem;
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-    .btn:hover { transform: scale(1.08); background: #b37a4c; }
-
-    /* Sections */
-    section {
-      padding: 20px 8%;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease-out, transform 1s ease-out;
-    }
-    section.visible { opacity: 1; transform: translateY(0); }
-    .section-title {
-      text-align: center; font-size: 1.8rem; margin-bottom: 15px; position: relative;
-    }
-    .section-title::after {
-      content: ""; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
-      width: 40px; height: 3px; background: #d2a679; border-radius: 2px;
-    }
-
-    /* Projects */
-    .projects {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-    }
-    .project-card {
-      background: #fffaf5;
-      border-radius: 12px;
-      padding: 15px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-6px) rotate(-1deg) scale(1.02);
-      box-shadow: 0 8px 18px rgba(210,166,121,0.45);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #f1e0c5;
-      color: #3e2c23;
-      margin-top: 15px;
-      animation: bounceIn 2s ease forwards;
-    }
-    footer .ps {
-      margin-top: 5px;
-      font-style: italic;
-      color: #6b4226;
-      font-size: 0.9rem;
-      opacity: 0;
-      animation: fadeIn 2s ease forwards 3s;
-    }
-    @keyframes bounceIn {
-      0% { transform: scale(0.9); opacity: 0; }
-      60% { transform: scale(1.05); opacity: 1; }
-      100% { transform: scale(1); }
-    }
-
-    /* Animations */
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-  </style>
-</head>
-<body>
-
-  <!-- Intro -->
-  <div class="intro"><span>Wafa Navas</span></div>
-
-  <!-- Navbar -->
-  <header id="navbar">
-    <div><b>Wafa Navas</b></div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Hello, I'm <span style="color:#a0522d">Wafa Navas</span></h1>
-    <p>Crafting the future of food with science, creativity, and purpose.</p>
-    <a href="#contact"><button class="btn">Get in Touch</button></a>
-  </section>
-
-  <!-- About -->
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <p>
-      I am a First Rank graduate in B.Tech Food Technology (2020–2025) from Verghese Kurien Institute of Dairy and Food Technology, driven by a passion for New Product Development and Research. My journey has been defined by curiosity and creativity—exploring how food science can be applied to craft innovative, consumer-friendly products. From formulating plant-based frozen desserts that cater to dietary inclusivity, to investigating clean-label fat alternatives for healthier food systems, I aim to blend scientific precision with real-world impact. Through hands-on industrial training, research presentations, and leadership experiences, I continue to shape my vision of making future foods both purposeful and inspiring.
-    </p>
-  </section>
-
-  <!-- Education -->
-  <section id="education">
-    <h2 class="section-title">Education</h2>
-    <h3>B.Tech Food Technology (2020–2025)</h3>
-    <p>Verghese Kurien Institute of Dairy and Food Technology</p>
-  </section>
-
-  <!-- Experience -->
-  <section id="experience">
-    <h2 class="section-title">Experience</h2>
-    <h3>Intern – New Product Development & Research</h3>
-    <p>Synthite Industries | Oct 2024 – Mar 2025</p>
-    <ul>
-      <li>Contributed to 20+ formulation trials for vegan proteins and brown flavors.</li>
-      <li>Conducted shelf-life tests with Rancimat & Oxitest.</li>
-    </ul>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects">
-      <div class="project-card">
-        <h3>Frozen Dessert from Hemp Milk</h3>
-        <p>Developed a dairy-free frozen dessert using hemp milk, targeting vegan and lactose-intolerant consumers. Optimized texture and sensory acceptance while demonstrating hemp’s potential in sustainable frozen desserts.</p>
-      </div>
-      <div class="project-card">
-        <h3>Oleogels as Fat Replacers</h3>
-        <p>Presented a seminar on oleogels as healthier alternatives to saturated fats. Showcased their role in stability, texture, and nutrition in modern food systems for health-conscious consumers.</p>
+<!-- ================== EDUCATION TIMELINE ================== -->
+<section id="education" style="padding:60px 0;background:#fdfdfd;">
+  <h2 style="text-align:center;font-size:2.2rem;margin-bottom:40px;">Education</h2>
+  <div class="timeline">
+    <div class="timeline-progress"></div> <!-- animated line -->
+    <div class="timeline-item left reveal">
+      <div class="content">
+        <h3>2020 — Class XII (CBSE)</h3>
+        <p>Kendriya Vidyalaya, Kadavanthra, Ernakulam<br>Secured <b>93.4%</b></p>
       </div>
     </div>
-  </section>
+    <div class="timeline-item right reveal">
+      <div class="content">
+        <h3>2018 — Class X (CBSE)</h3>
+        <p>Kendriya Vidyalaya, Kadavanthra, Ernakulam<br>Secured <b>96.8%</b></p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Achievements -->
-  <section id="achievements">
-    <h2 class="section-title">Achievements</h2>
-    <ul>
-      <li>1st Prize – AMUL Case Study Competition (2023)</li>
-      <li>1st Prize – English Essay, Synthite Industries (2024)</li>
-      <li>Champion – Versification & Mime, KVASU (2023)</li>
-    </ul>
-  </section>
+<!-- ================== LEADERSHIP & ROLES ================== -->
+<section id="leadership" style="padding:60px 0;background:#fff;">
+  <h2 style="text-align:center;font-size:2.2rem;margin-bottom:40px;">Leadership & Roles</h2>
+  <div class="cards">
+    <div class="card reveal">
+      <h3>Vice President, Students' Union (2022–2023)</h3>
+      <p>Organized cultural & academic events, represented students, resolved issues, and worked with faculty to create meaningful student initiatives. Sharpened leadership, teamwork, and decision-making skills.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Student Coordinator, FoodZone & FoodSalvatio (2020–2023)</h3>
+      <p>In collaboration with AFSTI, led awareness campaigns on World Food Day & World Food Safety Day. Conducted surveys, interactive classes, and national programs, teaching students about nutrition, food safety & sustainability.</p>
+    </div>
+  </div>
+</section>
 
-   <!-- Contact -->
-  <section id="contact">
-    <h2 class="section-title">Get in Touch</h2>
-    <p>📧 <a href="mailto:wafa17.002@gmail.com">wafa17.002@gmail.com</a></p>
-    <p>📞 <a href="tel:+918078754589">+91 8078754589</a></p>
-    <p>🔗 <a href="https://linkedin.com/in/wafa-navas" target="_blank">LinkedIn</a></p>
+<!-- ================== P.S. SECTION ================== -->
+<section id="ps" style="padding:40px 0;text-align:center;">
+  <p id="ps-note" class="ps-effect">P.S. I am always hungry for learning, building, and creating impact ✨</p>
+</section>
 
-    <!-- Funky PS Line -->
-    <p class="ps" style="margin-top:20px; font-style:italic; font-size:1rem; color:#6b4226;">
-      PS: Life’s too short for boring food — let’s cook up something unforgettable.
-    </p>
-  </section>
+<!-- ================== CSS ================== -->
+<style>
+/* Timeline Container */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px 0;
+}
 
-   <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Wafa Navas. Designed with passion and purpose.</p>
-  </footer>
+/* Progress Line */
+.timeline-progress {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  background: #6c63ff;
+  top: 0;
+  height: 0;
+  border-radius: 3px;
+  z-index: 0;
+  transition: height 0.3s ease-out;
+}
 
-  <!-- Scroll effects -->
-  <script>
-    const sections = document.querySelectorAll("section");
-    const navbar = document.getElementById("navbar");
-    const revealOnScroll = () => {
-      const trigger = window.innerHeight * 0.85;
-      sections.forEach(sec => {
-        const top = sec.getBoundingClientRect().top;
-        if (top < trigger) sec.classList.add("visible");
-      });
-    };
-    window.addEventListener("scroll", () => {
-      revealOnScroll();
-      if(window.scrollY > 40){ navbar.classList.add("scrolled"); }
-      else { navbar.classList.remove("scrolled"); }
-    });
-    revealOnScroll();
-  </script>
+/* Timeline Items */
+.timeline-item {
+  padding: 20px 40px;
+  position: relative;
+  width: 50%;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease-out;
+  z-index: 1;
+}
+.timeline-item.left { left: 0; }
+.timeline-item.right { left: 50%; }
 
-</body>
-</html>
+/* Timeline Dots */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -13px;
+  background-color: #6c63ff;
+  border: 4px solid #fff;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 0 rgba(108, 99, 255, 0.6);
+  transition: all 0.3s ease-in-out;
+}
+.timeline-item.right::before { left: -13px; }
+
+/* Active Glow Effect */
+.timeline-item.active::before {
+  animation: pulseGlow 1.5s infinite;
+}
+@keyframes pulseGlow {
+  0%   { box-shadow: 0 0 0 0 rgba(108,99,255,0.6); }
+  70%  { box-shadow: 0 0 20px 15px rgba(108,99,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(108,99,255,0); }
+}
+
+/* Timeline Content */
+.content {
+  padding: 20px;
+  background: #fff;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform .3s;
+}
+.content:hover { transform: scale(1.05); }
+
+/* Cards Styling */
+.cards {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+.card {
+  background: #fdfdfd;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+}
+.card h3 { margin-bottom: 15px; color: #6c63ff; }
+.card p { line-height: 1.6; color: #444; }
+
+/* Reveal animation */
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* P.S. typing + glow effect */
+.ps-effect {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #6c63ff;
+  border-right: 2px solid #6c63ff;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  display: inline-block;
+  opacity: 0;
+}
+.ps-effect.typing {
+  animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
+  opacity: 1;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes blink {
+  50% { border-color: transparent }
+}
+.ps-effect.glow {
+  border: none;
+  animation: pulseText 1.5s infinite alternate;
+}
+@keyframes pulseText {
+  from { text-shadow: 0 0 5px #6c63ff, 0 0 10px #6c63ff; }
+  to   { text-shadow: 0 0 15px #6c63ff, 0 0 25px #6c63ff; }
+}
+</style>
+
+<!-- ================== SCROLL SCRIPT ================== -->
+<script>
+/* Scroll reveal for items + glowing dots */
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      entry.target.closest('.timeline-item')?.classList.add('active'); // glow for timeline dots
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+reveals.forEach(r => observer.observe(r));
+
+/* Timeline line growth */
+const timeline = document.querySelector('.timeline');
+const progress = document.querySelector('.timeline-progress');
+window.addEventListener('scroll', () => {
+  const rect = timeline.getBoundingClientRect();
+  const winHeight = window.innerHeight;
+  if (rect.top < winHeight && rect.bottom > 0) {
+    let scrolled = Math.min(1, (winHeight - rect.top) / (rect.height + winHeight));
+    progress.style.height = (scrolled * rect.height) + "px";
+  }
+});
+
+/* P.S. scroll typing + glow */
+const ps = document.getElementById("ps-note");
+const psObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      ps.classList.add("typing");
+      psObserver.unobserve(ps);
+    }
+  });
+}, { threshold: 0.5 });
+psObserver.observe(ps);
+
+ps.addEventListener("animationend", (e) => {
+  if (e.animationName === "typing") {
+    ps.classList.remove("typing");
+    ps.classList.add("glow");
+  }
+});
+</script>
